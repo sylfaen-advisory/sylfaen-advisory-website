@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sylfaen Advisory — Construction Assurance Consultants</title>
+  <meta name="description" content="Specialist information management consultancy delivering CDE engineering, ISO 19650 compliance, and data assurance services for the UK construction sector.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #2d3a4a;
+      --navy-deep:  #1e2a38;
+      --teal:       #0abfbf;
+      --teal-mid:   #2a8fa0;
+      --teal-deep:  #1a6fa0;
+      --steel:      #4a6878;
+      --slate:      #4a6070;
+      --slate-lt:   #7a90a0;
+      --surface:    #f0f4f7;
+      --surface-md: #e4eaee;
+      --white:      #ffffff;
+      --border:     rgba(45,58,74,0.1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--navy);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(30,42,56,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(10,191,191,0.18);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 32px; height: 64px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+    .nav-wordmark-top { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.04em; }
+    .nav-wordmark-sub { font-size: 9px; font-weight: 400; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 3px; }
+    .nav-cta {
+      background: var(--teal); color: var(--navy-deep);
+      padding: 8px 20px; border-radius: 6px;
+      font-size: 13px; font-weight: 700; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #0dd4d4; }
+
+    /* HERO */
+    .hero {
+      padding: 140px 32px 100px;
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 420px; gap: 64px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(10,191,191,0.1); border: 1px solid rgba(10,191,191,0.25);
+      color: var(--teal-mid); padding: 5px 14px; border-radius: 20px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 24px;
+    }
+    .hero-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 5vw, 52px);
+      line-height: 1.12; color: var(--navy);
+      margin-bottom: 24px; letter-spacing: -0.02em;
+    }
+    .hero h1 em { font-style: italic; color: var(--teal-mid); }
+    .hero-body { font-size: 17px; color: var(--slate); line-height: 1.7; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--navy); color: #fff;
+      padding: 13px 26px; border-radius: 7px;
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--navy-deep); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--navy);
+      padding: 13px 26px; border-radius: 7px; border: 1.5px solid var(--border);
+      font-size: 14px; font-weight: 600; text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--teal-mid); background: rgba(10,191,191,0.05); }
+
+    /* HERO CARD */
+    .hero-card {
+      background: var(--white); border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(45,58,74,0.1); overflow: hidden;
+    }
+    .hero-card-header {
+      background: var(--navy); padding: 16px 24px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dots { display: flex; gap: 6px; }
+    .dots span { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.18); }
+    .dots span:first-child { background: rgba(10,191,191,0.55); }
+    .card-title-label { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.07em; text-transform: uppercase; margin-left: 6px; }
+    .hero-card-body { padding: 24px; }
+    .metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+    .metric { background: var(--surface); border-radius: 10px; padding: 14px 16px; border: 1px solid var(--border); }
+    .metric-label { font-size: 10px; font-weight: 600; color: var(--slate-lt); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .metric-value { font-size: 22px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .metric-value.teal { color: var(--teal-mid); }
+    .metric-sub { font-size: 10px; color: var(--slate-lt); margin-top: 3px; }
+    .cbar { margin-bottom: 14px; }
+    .cbar-labels { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .cbar-labels span:first-child { font-size: 11px; color: var(--slate); font-weight: 500; }
+    .cbar-labels span:last-child { font-size: 11px; color: var(--teal-mid); font-weight: 700; }
+    .track { height: 6px; background: var(--surface-md); border-radius: 3px; overflow: hidden; }
+    .fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal-mid), var(--teal)); }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
+    .tag { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+    .tag-teal { background: rgba(10,191,191,0.1); color: var(--teal-mid); }
+    .tag-navy { background: rgba(45,58,74,0.08); color: var(--navy); }
+    .tag-steel { background: rgba(74,104,120,0.1); color: var(--steel); }
+
+    /* SERVICES */
+    .services { max-width: 1100px; margin: 0 auto; padding: 80px 32px; }
+    .section-label { font-size: 11px; font-weight: 600; color: var(--teal-mid); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 38px); color: var(--navy); line-height: 1.2; margin-bottom: 48px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--white); border-radius: 12px;
+      border: 1px solid var(--border); padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 12px 40px rgba(45,58,74,0.1); transform: translateY(-3px); }
+    .s-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 20px; }
+    .s-icon-teal { background: rgba(10,191,191,0.1); }
+    .s-icon-navy { background: rgba(45,58,74,0.07); }
+    .s-icon-steel { background: rgba(74,104,120,0.1); }
+    .s-tier { font-size: 10px; font-weight: 700; color: var(--slate-lt); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+    .s-name { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .s-desc { font-size: 14px; color: var(--slate); line-height: 1.65; margin-bottom: 20px; }
+    .s-price { font-size: 13px; font-weight: 600; color: var(--teal-mid); padding-top: 16px; border-top: 1px solid var(--border); }
+
+    /* PLATFORM */
+    .platform-strip { background: var(--navy); padding: 72px 32px; }
+    .platform-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .p-label { font-size: 11px; font-weight: 600; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+    .p-title { font-family: 'DM Serif Display', serif; font-size: clamp(26px, 3.5vw, 36px); color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    .p-body { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .p-features { display: flex; flex-direction: column; gap: 14px; }
+    .p-feature { display: flex; align-items: flex-start; gap: 12px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 14px 18px; }
+    .p-feature-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(10,191,191,0.15); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 15px; }
+    .p-feature-text strong { display: block; font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 2px; }
+    .p-feature-text span { font-size: 12px; color: rgba(255,255,255,0.45); }
+
+    /* WHY */
+    .why { max-width: 1100px; margin: 0 auto; padding: 80px 32px; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+    .why-number { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--surface-md); line-height: 1; margin-bottom: 8px; }
+    .why-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .why-body { font-size: 14px; color: var(--slate); line-height: 1.65; }
+
+    /* CONTACT */
+    .contact { background: var(--white); border-top: 1px solid var(--border); padding: 80px 32px; }
+    .contact-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .contact-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 4vw, 40px); color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+    .contact-body { font-size: 16px; color: var(--slate); margin-bottom: 36px; line-height: 1.7; }
+    .contact-email { display: inline-block; background: var(--navy); color: #fff; padding: 15px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .contact-email:hover { background: var(--navy-deep); }
+    .contact-note { margin-top: 20px; font-size: 13px; color: var(--slate-lt); }
+
+    /* FOOTER */
+    footer { background: var(--navy-deep); padding: 28px 32px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-left { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .footer-right { font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-teal { color: var(--teal); font-weight: 500; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 120px 24px 72px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .platform-inner { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    .hero-eyebrow { animation: fadeUp 0.5s ease both; }
+    .hero h1      { animation: fadeUp 0.5s 0.1s ease both; }
+    .hero-body    { animation: fadeUp 0.5s 0.2s ease both; }
+    .hero-actions { animation: fadeUp 0.5s 0.3s ease both; }
+    .hero-card    { animation: fadeUp 0.6s 0.15s ease both; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="14" width="7" height="18" rx="1" fill="#2a8fa0"/>
+        <rect x="11" y="8" width="7" height="24" rx="1" fill="#0abfbf"/>
+        <rect x="20" y="18" width="7" height="14" rx="1" fill="#4a6878"/>
+        <rect x="20" y="11" width="7" height="6" rx="1" fill="#4a6878" opacity="0.5"/>
+      </svg>
+      <div class="nav-wordmark">
+        <span class="nav-wordmark-top">Sylfaen Advisory</span>
+        <span class="nav-wordmark-sub">Construction Assurance</span>
+      </div>
+    </a>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<section style="background:var(--white);">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">UK Construction Sector</div>
+      <h1>Information management <em>done properly</em></h1>
+      <p class="hero-body">Sylfaen Advisory delivers specialist CDE engineering, ISO 19650 compliance frameworks, and data assurance services to contractors, consultancies, and asset owners across the UK.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a conversation</a>
+        <a href="#services" class="btn-secondary">Our services</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-card">
+        <div class="hero-card-header">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="card-title-label">CDE Health Check · Example output</span>
+        </div>
+        <div class="hero-card-body">
+          <div class="metric-row">
+            <div class="metric">
+              <div class="metric-label">Documents audited</div>
+              <div class="metric-value">2,847</div>
+              <div class="metric-sub">Across 14 work packages</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Compliance rate</div>
+              <div class="metric-value teal">73%</div>
+              <div class="metric-sub">Up from 41% baseline</div>
+            </div>
+          </div>
+          <div class="cbar">
+            <div class="cbar-labels"><span>Naming convention</span><span>91%</span></div>
+            <div class="track"><div class="fill" style="width:91%"></div></div>
+          </div>
+          <div class="cbar">
+            <div class="cbar-labels"><span>Metadata completeness</span><span>78%</span></div>
+            <div class="track"><div class="fill" style="width:78%"></div></div>
+          </div>
+          <div class="cbar">
+            <div class="cbar-labels"><span>Workflow adoption</span><span>54%</span></div>
+            <div class="track"><div class="fill" style="width:54%"></div></div>
+          </div>
+          <div class="tags">
+            <span class="tag tag-teal">ISO 19650</span>
+            <span class="tag tag-navy">Asite</span>
+            <span class="tag tag-steel">14-day turnaround</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What we do</div>
+  <div class="section-title">Three ways to engage</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="s-icon s-icon-teal">🔍</div>
+      <div class="s-tier">Tier 1 · Fixed fee</div>
+      <div class="s-name">CDE Health Check &amp; Strategy Roadmap</div>
+      <div class="s-desc">A focused 14-day diagnostic of your CDE environment. We identify compliance gaps against ISO 19650, audit naming conventions, and deliver a clear remediation roadmap.</div>
+      <div class="s-price">£2,500 – £5,000 · 14 business days</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon s-icon-navy">⚙️</div>
+      <div class="s-tier">Tier 2 · Project-based</div>
+      <div class="s-name">Implementation, Migration &amp; Standardisation</div>
+      <div class="s-desc">End-to-end CDE builds, legacy data migration, metadata standardisation, and supply chain adoption rollouts across Asite, Autodesk, Dalux, ProjectWise, and Viewpoint.</div>
+      <div class="s-price">£10,000 – £25,000+</div>
+    </div>
+    <div class="service-card">
+      <div class="s-icon s-icon-steel">📊</div>
+      <div class="s-tier">Tier 3 · Monthly retainer</div>
+      <div class="s-name">Information Management as a Service</div>
+      <div class="s-desc">Fractional Information Manager or CDE Administrator for asset owners and scaling contractors. Continuous monitoring, quality assurance, and compliance reporting.</div>
+      <div class="s-price">£1,500 – £4,000 / month</div>
+    </div>
+  </div>
+</section>
+
+<section class="platform-strip">
+  <div class="platform-inner">
+    <div>
+      <div class="p-label">Powered by Awen</div>
+      <div class="p-title">Proprietary tooling for faster, more accurate outcomes</div>
+      <p class="p-body">Awen is our internal data assurance platform, purpose-built for ISO 19650 engagements. It enables us to deliver enterprise-scale outcomes at significantly greater speed and consistency than conventional approaches — efficiency we pass on as better results, not just lower fees.</p>
+    </div>
+    <div class="p-features">
+      <div class="p-feature">
+        <div class="p-feature-icon">📄</div>
+        <div class="p-feature-text">
+          <strong>AI-assisted document generation</strong>
+          <span>BEPs, EIRs, gap analysis reports — produced at pace without compromising quality</span>
+        </div>
+      </div>
+      <div class="p-feature">
+        <div class="p-feature-icon">✅</div>
+        <div class="p-feature-text">
+          <strong>Automated compliance checking</strong>
+          <span>Metadata validation and naming convention enforcement across major CDE platforms</span>
+        </div>
+      </div>
+      <div class="p-feature">
+        <div class="p-feature-icon">📈</div>
+        <div class="p-feature-text">
+          <strong>Engagement dashboards</strong>
+          <span>Live visibility of compliance rates, workflow adoption, and remediation progress</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-label">Why Sylfaen Advisory</div>
+  <div class="section-title">Deep expertise, no overhead</div>
+  <div class="why-grid">
+    <div>
+      <div class="why-number">15+</div>
+      <div class="why-title">Years of CDE delivery experience</div>
+      <div class="why-body">Platform expertise across Bentley BCDE, ProjectWise, Viewpoint 4Projects, Asite, Autodesk Docs, and Dalux — including co-development of BCDE at Bentley Systems.</div>
+    </div>
+    <div>
+      <div class="why-number">ISO</div>
+      <div class="why-title">19650-native practice</div>
+      <div class="why-body">We don't apply ISO 19650 as a wrapper — it's the foundation of everything we deliver. Our frameworks are built from the standard up, not retrofitted to existing templates.</div>
+    </div>
+    <div>
+      <div class="why-number">UK</div>
+      <div class="why-title">Construction sector focus</div>
+      <div class="why-body">Specialists in the UK regulatory environment — Building Safety Act Golden Thread, EIR/BEP frameworks, and the emerging ISO 19650:2026 transition requirements.</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="text-align:center;">Get in touch</div>
+    <div class="contact-title">Ready to get your information pipelines under control?</div>
+    <p class="contact-body">Whether you're facing a platform migration, a compliance gap, or simply need independent eyes on your CDE setup — start with a conversation. No pitch, no commitment.</p>
+    <a href="mailto:mark@sylfaenadvisory.co.uk" class="contact-email">mark@sylfaenadvisory.co.uk</a>
+    <p class="contact-note">We typically respond within one business day.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">© 2026 <span class="footer-teal">Sylfaen Advisory</span> · Construction Assurance Consultants · Wales, UK</div>
+    <div class="footer-right">Powered by <span style="color:rgba(255,255,255,0.35);">Awen</span></div>
+  </div>
+</footer>
+
+</body>
+</html>
