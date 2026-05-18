@@ -34,7 +34,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="section hero" id="top" style={{ backgroundImage: "url('assets/hero-drawings.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
+    <section className="section hero" id="top" style={{ backgroundImage: "linear-gradient(rgba(236,234,227,0.15), rgba(236,234,227,0.1)), url('assets/hero-bg-v2.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
       <div className="wrap">
         <div className="hero-eyebrow">
           <span>A boutique consultancy · Wales, UK</span>
