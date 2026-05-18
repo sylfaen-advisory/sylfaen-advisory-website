@@ -373,7 +373,7 @@ function Contact() {
     e.preventDefault();
     if (!name || !email) return;
     try {
-      const res = await fetch('https://formspree.io/f/xyzknqpw', {
+      const res = await fetch('https://formspree.io/f/mqejaqpg', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ name, email, organisation: org, engagement: chosen, message: msg, ref: refId }),
@@ -417,7 +417,7 @@ function Contact() {
                 </span>
                 <span className="arr">→</span>
               </a>
-              <a href="#contact" className="contact-mode" onClick={(e) => { e.preventDefault(); window.location.href='mailto:mark@sylfaenadvisory.co.uk?subject=Introduction%20request'; }}>
+              <a href="#contact" className="contact-mode" onClick={(e) => { e.preventDefault(); window.open('https://calendly.com/mark-sylfaenadvisory/30min', '_blank'); }}>
                 <span className="ix">iii.</span>
                 <span className="lbl">
                   <span className="t">Book a 30-minute introduction</span>
@@ -661,7 +661,6 @@ function App() {
       <Credentials />
       <Contact />
       <Footer />
-      <TweaksUI t={t} setTweak={setTweak} />
     </>
   );
 }
