@@ -34,13 +34,13 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="section hero" id="top" style={{ backgroundImage: "linear-gradient(rgba(20,28,35,0.25), rgba(20,28,35,0.15)), url('assets/hero-drawings.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
+    <section className="section hero" id="top" style={{ backgroundImage: "url('assets/hero-drawings.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
       <div className="wrap">
         <div className="hero-eyebrow">
           <span>A boutique consultancy · Wales, UK</span>
         </div>
 
-        <h1 className="hero-headline" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
+        <h1 className="hero-headline" style={{ color: "var(--ink)", textShadow: "0 1px 4px rgba(255,255,255,0.6)" }}>
           Information<br />
           management,<br />
           <em>done properly.</em>
