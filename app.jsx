@@ -102,6 +102,7 @@ function Hero() {
 
 function Practice({ showEtymology = true }) {
   return (
+    <>
     <div className="img-divider" style={{ backgroundImage: "url('assets/divider-desk.jpg')", backgroundSize: "cover", backgroundPosition: "center 35%" }}></div>
     <section className="section section-rule" id="practice">
       <div className="wrap">
@@ -169,6 +170,7 @@ function Practice({ showEtymology = true }) {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
@@ -302,6 +304,7 @@ function AwenSection() {
 
 function Credentials() {
   return (
+    <>
     <div className="img-divider" style={{ backgroundImage: "url('assets/divider-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 60%" }}></div>
     <section className="section section-rule" id="credentials">
       <div className="wrap">
@@ -354,6 +357,7 @@ function Credentials() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
@@ -388,6 +392,7 @@ function Contact() {
   };
 
   return (
+    <>
     <div className="img-divider" style={{ backgroundImage: "url('assets/divider-cable-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }}></div>
     <section className="section section-rule" id="contact">
       <div className="wrap">
@@ -505,6 +510,7 @@ function Contact() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
