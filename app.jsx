@@ -32,15 +32,22 @@ function Nav() {
 
 // === Hero ===
 
-function Hero() {
+function Hero({ layout = "platebelow" }) {
+  const imageBehind = layout === "imagebehind";
   return (
-    <section className="section hero" id="top" style={{ backgroundImage: "linear-gradient(rgba(236,234,227,0.15), rgba(236,234,227,0.1)), url('assets/hero-bg-v2.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
+    <section className={`section hero ${imageBehind ? 'hero-imaged' : ''}`} id="top">
+      {imageBehind && (
+        <div className="hero-bg" aria-hidden="true">
+          <img src="assets/hero-drawings.jpg" alt="" />
+          <div className="hero-bg-veil"></div>
+        </div>
+      )}
       <div className="wrap">
         <div className="hero-eyebrow">
           <span>A boutique consultancy · Wales, UK</span>
         </div>
 
-        <h1 className="hero-headline" style={{ color: "var(--ink)", textShadow: "0 1px 4px rgba(255,255,255,0.6)" }}>
+        <h1 className="hero-headline">
           Information<br />
           management,<br />
           <em>done properly.</em>
@@ -102,8 +109,6 @@ function Hero() {
 
 function Practice({ showEtymology = true }) {
   return (
-    <>
-    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-desk.jpg')", backgroundSize: "cover", backgroundPosition: "center 35%" }}></div>
     <section className="section section-rule" id="practice">
       <div className="wrap">
         <div className="section-head">
@@ -124,6 +129,15 @@ function Practice({ showEtymology = true }) {
                 which everything else fails quietly, then loudly.
               </p>
             </div>
+            <figure style={{ margin: 0, display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div className="is-portrait" style={{ border: '1px solid var(--rule)' }}>
+                <image-slot id="practice-portrait" placeholder="Drop a portrait of the principal (Mark) or a workspace shot — 4:5 portrait works best."></image-slot>
+              </div>
+              <figcaption style={{ display: 'flex', justifyContent: 'space-between', fontFamily: 'var(--mono)', fontSize: 10, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--slate)' }}>
+                <span>Pl. II · Practice principal</span>
+                <span>Plate / portrait</span>
+              </figcaption>
+            </figure>
           </aside>}
 
           <div className="practice-body">
@@ -170,7 +184,6 @@ function Practice({ showEtymology = true }) {
         </div>
       </div>
     </section>
-    </>
   );
 }
 
@@ -304,8 +317,6 @@ function AwenSection() {
 
 function Credentials() {
   return (
-    <>
-    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 60%" }}></div>
     <section className="section section-rule" id="credentials">
       <div className="wrap">
         <div className="section-head">
@@ -357,7 +368,6 @@ function Credentials() {
         </div>
       </div>
     </section>
-    </>
   );
 }
 
@@ -379,21 +389,16 @@ function Contact() {
     e.preventDefault();
     if (!name || !email) return;
     try {
-      const res = await fetch('https://formspree.io/f/mqejaqpg', {
+      await fetch('https://formspree.io/f/mqejaqpg', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, organisation: org, engagement: chosen, message: msg, ref: refId }),
+        body: JSON.stringify({ name, email, organisation: org, engagement: chosen, message: msg }),
       });
-      if (res.ok) setSubmitted(true);
-      else setSubmitted(true); // show success even if Formspree not yet configured
-    } catch {
-      setSubmitted(true);
-    }
+    } catch {}
+    setSubmitted(true);
   };
 
   return (
-    <>
-    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-cable-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }}></div>
     <section className="section section-rule" id="contact">
       <div className="wrap">
         <div className="contact">
@@ -402,14 +407,6 @@ function Contact() {
             <h2 className="section-title">
               Begin with a <em>conversation</em> — no pitch, no commitment.
             </h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '24px 0 8px' }}>
-              <img src="assets/headshot.jpg" alt="Mark Biscoe" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--rule)', flexShrink: 0 }} />
-              <div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.08em', color: 'var(--slate)', textTransform: 'uppercase' }}>Engagement lead</div>
-                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, color: 'var(--ink)', fontWeight: 400 }}>Mark Biscoe</div>
-                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--slate)', letterSpacing: '0.06em' }}>15+ yrs CDE · Wales, UK</div>
-              </div>
-            </div>
             <p className="section-sub" style={{ marginTop: 24 }}>
               We respond to every enquiry within one business day. Initial
               conversations are scoped at 30 minutes and held under
@@ -510,7 +507,6 @@ function Contact() {
         </div>
       </div>
     </section>
-    </>
   );
 }
 
@@ -571,7 +567,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "serif": "newsreader",
   "density": "relaxed",
   "showEtymology": true,
-  "ctaTone": "primary"
+  "ctaTone": "primary",
+  "heroLayout": "platebelow"
 }/*EDITMODE-END*/;
 
 const PALETTES = {
@@ -644,6 +641,15 @@ function TweaksUI({ t, setTweak }) {
       </TweakSection>
       <TweakSection label="Layout">
         <TweakRadio
+          label="Hero"
+          value={t.heroLayout}
+          onChange={(v) => setTweak('heroLayout', v)}
+          options={[
+            { value: 'platebelow', label: 'Plate below' },
+            { value: 'imagebehind', label: 'Image behind' },
+          ]}
+        />
+        <TweakRadio
           label="Density"
           value={t.density}
           onChange={(v) => setTweak('density', v)}
@@ -662,6 +668,60 @@ function TweaksUI({ t, setTweak }) {
   );
 }
 
+// === Plate (editorial figure) ===
+
+function Plate() {
+  return (
+    <section className="plate" aria-label="Plate I — Working drawings">
+      <div className="plate-frame">
+        <img src="assets/hero-drawings.jpg" alt="Layered archival construction drawings with stair details, sections, and project ledgers" />
+        <div className="plate-top-rule">
+          <span>Sylfaen Advisory · Figure plate</span>
+          <span>Archive No. 818286</span>
+        </div>
+        <div className="plate-caption">
+          <div className="plate-label">
+            <span className="roman">Plate I</span>
+            On working drawings — <em>the artefacts our methodology protects.</em>
+          </div>
+          <div className="plate-meta">
+            <span>Pre-CDE working drawings</span>
+            <span className="v">Lift shaft / corpus N⁰4 — Builders' set</span>
+          </div>
+          <span className="plate-marker">№ 01 / 04</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// === Plate III (site / environment) ===
+
+function PlateIII() {
+  return (
+    <section className="plate" aria-label="Plate III — On site">
+      <div className="plate-frame" style={{ height: 'clamp(320px, 48vh, 540px)' }}>
+        <image-slot id="plate-iii" placeholder="Drop a wide environment shot here — a site visit, a workspace, a Welsh landscape. 16:9 works best. Greyscale or warm-toned works with the palette."></image-slot>
+        <div className="plate-top-rule">
+          <span>Sylfaen Advisory · Figure plate</span>
+          <span>On site · Wales / UK</span>
+        </div>
+        <div className="plate-caption">
+          <div className="plate-label">
+            <span className="roman">Plate III</span>
+            On site — <em>where the work actually happens.</em>
+          </div>
+          <div className="plate-meta">
+            <span>Site visit / studio</span>
+            <span className="v">Drop your own image →</span>
+          </div>
+          <span className="plate-marker">№ 03 / 04</span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // === App ===
 
 function App() {
@@ -671,10 +731,12 @@ function App() {
   return (
     <>
       <Nav />
-      <Hero />
+      <Hero layout={t.heroLayout} />
+      {t.heroLayout !== 'imagebehind' && <Plate />}
       <Practice showEtymology={t.showEtymology} />
       <Engagements />
       <AwenSection />
+      <PlateIII />
       <Credentials />
       <Contact />
       <Footer />
