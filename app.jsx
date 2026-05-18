@@ -568,7 +568,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "density": "relaxed",
   "showEtymology": true,
   "ctaTone": "primary",
-  "heroLayout": "platebelow"
+  "heroLayout": "imagebehind"
 }/*EDITMODE-END*/;
 
 const PALETTES = {
