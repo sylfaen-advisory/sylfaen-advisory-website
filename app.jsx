@@ -34,7 +34,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="section hero" id="top">
+    <section className="section hero" id="top" style={{ backgroundImage: "linear-gradient(rgba(20,28,35,0.72), rgba(20,28,35,0.55)), url('assets/hero-drawings.jpg')", backgroundSize: "cover", backgroundPosition: "center 40%" }}>
       <div className="wrap">
         <div className="hero-eyebrow">
           <span>A boutique consultancy · Wales, UK</span>
@@ -102,6 +102,7 @@ function Hero() {
 
 function Practice({ showEtymology = true }) {
   return (
+    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-desk.jpg')", backgroundSize: "cover", backgroundPosition: "center 35%" }}></div>
     <section className="section section-rule" id="practice">
       <div className="wrap">
         <div className="section-head">
@@ -301,6 +302,7 @@ function AwenSection() {
 
 function Credentials() {
   return (
+    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 60%" }}></div>
     <section className="section section-rule" id="credentials">
       <div className="wrap">
         <div className="section-head">
@@ -386,6 +388,7 @@ function Contact() {
   };
 
   return (
+    <div className="img-divider" style={{ backgroundImage: "url('assets/divider-cable-bridge.jpg')", backgroundSize: "cover", backgroundPosition: "center 30%" }}></div>
     <section className="section section-rule" id="contact">
       <div className="wrap">
         <div className="contact">
@@ -394,6 +397,14 @@ function Contact() {
             <h2 className="section-title">
               Begin with a <em>conversation</em> — no pitch, no commitment.
             </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, margin: '24px 0 8px' }}>
+              <img src="assets/headshot.jpg" alt="Mark Biscoe" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--rule)', flexShrink: 0 }} />
+              <div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 11, letterSpacing: '0.08em', color: 'var(--slate)', textTransform: 'uppercase' }}>Engagement lead</div>
+                <div style={{ fontFamily: 'var(--serif)', fontSize: 18, color: 'var(--ink)', fontWeight: 400 }}>Mark Biscoe</div>
+                <div style={{ fontFamily: 'var(--mono)', fontSize: 10, color: 'var(--slate)', letterSpacing: '0.06em' }}>15+ yrs CDE · Wales, UK</div>
+              </div>
+            </div>
             <p className="section-sub" style={{ marginTop: 24 }}>
               We respond to every enquiry within one business day. Initial
               conversations are scoped at 30 minutes and held under
