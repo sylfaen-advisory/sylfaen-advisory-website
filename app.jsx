@@ -77,7 +77,7 @@ function Hero({ layout = "platebelow" }) {
             </div>
             <div className="row">
               <span className="k">Engagement lead</span>
-              <span className="v">Mark Biscoe</span>
+              <span className="v">Mark Evans</span>
             </div>
             <div className="row">
               <span className="k">Sector focus</span>
@@ -385,16 +385,9 @@ function Contact() {
 
   const refId = "SYL-" + Math.random().toString(36).slice(2, 7).toUpperCase();
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!name || !email) return;
-    try {
-      await fetch('https://formspree.io/f/mqejaqpg', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ name, email, organisation: org, engagement: chosen, message: msg }),
-      });
-    } catch {}
     setSubmitted(true);
   };
 
@@ -430,7 +423,7 @@ function Contact() {
                 </span>
                 <span className="arr">→</span>
               </a>
-              <a href="#contact" className="contact-mode" onClick={(e) => { e.preventDefault(); window.open('https://calendly.com/mark-sylfaenadvisory/30min', '_blank'); }}>
+              <a href="#contact" className="contact-mode" onClick={(e) => { e.preventDefault(); alert('Calendly placeholder — replace with your booking link.'); }}>
                 <span className="ix">iii.</span>
                 <span className="lbl">
                   <span className="t">Book a 30-minute introduction</span>
@@ -568,7 +561,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "density": "relaxed",
   "showEtymology": true,
   "ctaTone": "primary",
-  "heroLayout": "imagebehind"
+  "heroLayout": "platebelow"
 }/*EDITMODE-END*/;
 
 const PALETTES = {
@@ -740,6 +733,7 @@ function App() {
       <Credentials />
       <Contact />
       <Footer />
+      <TweaksUI t={t} setTweak={setTweak} />
     </>
   );
 }
