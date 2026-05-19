@@ -813,6 +813,7 @@ function App() {
       <Credentials />
       <Contact />
       <Footer />
+      <TweaksUI t={t} setTweak={setTweak} />
     </>
   );
 }

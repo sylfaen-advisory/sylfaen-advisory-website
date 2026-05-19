@@ -1443,6 +1443,90 @@ button {
   border-top: 1px solid var(--rule);
 }
 
+/* Principal card in Contact */
+
+.principal-card {
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.principal-photo {
+  width: 140px;
+  height: 140px;
+  border: 1px solid var(--rule);
+  background: var(--bg-deep);
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
+}
+
+.principal-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.02);
+}
+
+.principal-photo image-slot {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.principal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.principal-eyebrow {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 6px;
+}
+
+.principal-name {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  line-height: 1.1;
+}
+
+.principal-role {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--slate);
+  margin-bottom: 10px;
+}
+
+.principal-bio {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 42ch;
+}
+
+@media (max-width: 540px) {
+  .principal-card {
+    grid-template-columns: 1fr;
+  }
+  .principal-photo {
+    width: 140px;
+  }
+}
+
 .contact-mode {
   display: grid;
   grid-template-columns: 56px 1fr auto;
@@ -1797,6 +1881,22 @@ button {
   letter-spacing: 0.18em;
   text-align: right;
   align-self: end;
+}
+
+/* Narrow divider variant */
+.plate-divider .plate-frame img {
+  filter: saturate(0.92) contrast(1.02) brightness(0.85);
+}
+
+.plate-divider .plate-frame::after {
+  background:
+    linear-gradient(to right, rgba(10,8,7,0.7) 0%, rgba(10,8,7,0.2) 45%, rgba(10,8,7,0.2) 55%, rgba(10,8,7,0.65) 100%),
+    linear-gradient(to bottom, rgba(10,8,7,0.15) 0%, transparent 35%, transparent 65%, rgba(10,8,7,0.6) 100%);
+}
+
+.plate-caption-tight {
+  grid-template-columns: 1fr;
+  padding: clamp(14px, 2vw, 26px) var(--gutter);
 }
 
 @media (max-width: 760px) {
