@@ -592,6 +592,7 @@ function Footer() {
               <li><a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></li>
               <li><a href="#contact">Engagement enquiry</a></li>
               <li><a href="#contact">Book introduction</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
             </ul>
           </div>
         </div>
