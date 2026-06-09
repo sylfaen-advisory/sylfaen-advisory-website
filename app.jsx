@@ -73,7 +73,7 @@ function Hero({ layout = "platebelow" }) {
           <aside className="hero-meta">
             <div className="row">
               <span className="k">Established</span>
-              <span className="v">2024 · Wales</span>
+              <span className="v">2026 · Wales</span>
             </div>
             <div className="row">
               <span className="k">Engagement lead</span>
@@ -81,7 +81,7 @@ function Hero({ layout = "platebelow" }) {
             </div>
             <div className="row">
               <span className="k">Sector focus</span>
-              <span className="v">Tier 1 contractors · Asset owners · Consultancies</span>
+              <span className="v">Tier 1 contractors · Asset owners · Consultancies · Chartered practices</span>
             </div>
             <div className="row">
               <span className="k">Standards</span>
@@ -218,8 +218,17 @@ const TIERS = [
     title: "Information Management as a Service",
     body: <>Fractional Information Manager or CDE Administrator for asset owners and scaling contractors. Continuous monitoring via Awen, monthly compliance reporting, and a named point of contact. <strong>Retained capability without retained payroll.</strong></>,
     pills: ["Fractional IM", "Monitoring", "Monthly reports", "Named contact", "Awen included"],
-    price: "£1.5–4k",
+    price: "£2.5–4k",
     unit: "per month",
+  },
+  {
+    num: "IV",
+    tag: "Advisory · Project-based",
+    title: "AI Governance & Readiness",
+    body: <>Structured advisory for construction and property sector organisations introducing AI tools into project delivery workflows. We assess governance gaps against emerging frameworks (ISO&nbsp;42001, RICS guidance, BSA obligations), produce policy documentation, and advise on responsible deployment — <strong>with particular reference to document-intensive and compliance-critical environments.</strong></>,
+    pills: ["AI readiness assessment", "Governance framework", "Policy documentation", "RICS-aligned delivery", "Implementation roadmap"],
+    price: "£3–8k",
+    unit: "Project scope",
   },
 ];
 
@@ -231,7 +240,7 @@ function Engagements() {
           <div className="section-head">
             <div className="eyebrow"><span className="num">02</span>Engagements</div>
             <h2 className="section-title">
-              Three ways to engage — <em>each priced openly,</em> each scoped to remove the usual friction.
+              Ways to engage — <em>each priced openly,</em> each scoped to remove the usual friction.
             </h2>
           </div>
 
@@ -297,8 +306,8 @@ function AwenSection() {
           <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(241,237,227,0.08)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, color: 'rgba(241,237,227,0.7)' }} className="awen-features">
             <div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(241,237,227,0.4)', marginBottom: 10 }}>i. Document generation</div>
-              <div style={{ fontFamily: 'var(--serif)', fontSize: 18, color: 'var(--bg)', fontWeight: 380, lineHeight: 1.3, marginBottom: 8 }}>AI-assisted, evidence-grounded</div>
-              <p style={{ fontSize: 13, lineHeight: 1.55 }}>BEPs, EIRs, gap analyses and remediation notes drafted at pace — every claim traceable back to a source artefact.</p>
+              <div style={{ fontFamily: 'var(--serif)', fontSize: 18, color: 'var(--bg)', fontWeight: 380, lineHeight: 1.3, marginBottom: 8 }}>Author the standard, don't just audit it</div>
+              <p style={{ fontSize: 13, lineHeight: 1.55 }}>BEPs, EIRs, employer's information requirements, gap analyses and remediation notes — generated at pace from live project data, with every claim traceable back to a source artefact. The platform produces compliant first drafts; we govern their quality.</p>
             </div>
             <div>
               <div style={{ fontFamily: 'var(--mono)', fontSize: 10.5, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(241,237,227,0.4)', marginBottom: 10 }}>ii. Compliance enforcement</div>
@@ -377,7 +386,7 @@ function Credentials() {
 
 // === Contact ===
 
-const ENGAGEMENT_OPTIONS = ["Health Check (Tier I)", "Implementation (Tier II)", "Retainer (Tier III)", "Awen demo", "Not sure yet"];
+const ENGAGEMENT_OPTIONS = ["Health Check (Tier I)", "Implementation (Tier II)", "Retainer (Tier III)", "AI Governance Advisory (Tier IV)", "Awen demo", "Not sure yet"];
 
 function Contact() {
   const [chosen, setChosen] = useState("Health Check (Tier I)");
