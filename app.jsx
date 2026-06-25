@@ -577,6 +577,8 @@ function Footer() {
               <li>Sylfaen Advisory Ltd</li>
               <li>Construction Assurance Consultants</li>
               <li>Wales, UK · operating UK-wide</li>
+              <li>Registered in England &amp; Wales · No. 17275026</li>
+              <li>ICO Registration · C1967400</li>
             </ul>
           </div>
           <div className="footer-col">
