@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Sylfaen Advisory</title>
-  <meta name="description" content="Privacy Policy for Sylfaen Advisory Limited — how we collect, use, and protect your personal data under UK GDPR." />
+  <meta name="description" content="How Sylfaen Advisory Limited collects, uses and protects personal data, in line with UK GDPR. A B2B construction assurance consultancy based in Wales." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,152 +13,191 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    .policy-layout {
+    /* === Privacy page — scoped === */
+
+    .legal-hero {
+      padding-top: clamp(72px, 8vw, 120px);
+      padding-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .legal-hero .hero-headline {
+      font-size: clamp(40px, 5.4vw, 76px);
+      max-width: 20ch;
+    }
+
+    .legal-layout {
       display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: clamp(40px, 6vw, 100px);
+      grid-template-columns: 280px 1fr;
+      gap: clamp(40px, 6vw, 96px);
       align-items: start;
     }
 
-    @media (max-width: 760px) {
-      .policy-layout { grid-template-columns: 1fr; }
-      .policy-aside { position: static; }
+    @media (max-width: 880px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 40px; }
     }
 
-    .policy-aside {
+    .legal-aside {
       position: sticky;
       top: 100px;
-    }
-
-    .policy-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       border: 1px solid var(--rule);
-      padding: 24px;
       background: var(--paper);
+    }
+
+    @media (max-width: 880px) {
+      .legal-aside { position: static; }
+    }
+
+    .legal-aside .meta-row {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 5px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--rule-soft);
     }
 
-    .policy-meta-row {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
+    .legal-aside .meta-row:last-child { border-bottom: none; }
 
-    .policy-meta-row .k {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-
-    .policy-meta-row .v {
-      font-size: 13.5px;
-      color: var(--ink);
-      line-height: 1.4;
-    }
-
-    .policy-body {
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
-    }
-
-    .policy-section {
-      border-top: 1px solid var(--rule);
-      padding-top: 32px;
-    }
-
-    .policy-section:first-child {
-      border-top: none;
-      padding-top: 0;
-    }
-
-    .policy-eyebrow {
+    .legal-aside .meta-row .k {
       font-family: var(--mono);
       font-size: 10px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--slate);
-      margin-bottom: 10px;
     }
 
-    .policy-section h2 {
+    .legal-aside .meta-row .v {
       font-family: var(--serif);
-      font-size: clamp(22px, 2vw, 28px);
+      font-size: 16px;
       font-weight: 400;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
       color: var(--ink);
-      margin-bottom: 18px;
+      line-height: 1.3;
     }
 
-    .policy-section p {
+    .legal-aside .meta-row .v a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-aside .meta-foot {
+      padding: 16px 22px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+      text-transform: uppercase;
+      color: var(--slate);
+      background: var(--bg-deep);
+    }
+
+    .legal-body {
+      max-width: 70ch;
+    }
+
+    .legal-section {
+      padding-bottom: clamp(40px, 4.5vw, 64px);
+      margin-bottom: clamp(40px, 4.5vw, 64px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .legal-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .legal-section .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--serif);
+      font-weight: 380;
+      font-size: clamp(26px, 2.8vw, 38px);
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 22px;
+      text-wrap: balance;
+    }
+
+    .legal-section p {
       font-size: 15px;
       line-height: 1.65;
       color: var(--ink-soft);
-      max-width: 66ch;
+      margin-bottom: 16px;
     }
 
-    .policy-section p + p {
-      margin-top: 14px;
+    .legal-section p:last-child { margin-bottom: 0; }
+
+    .legal-section a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 160ms ease;
     }
 
-    .policy-section ul {
-      margin-top: 12px;
+    .legal-section a:hover { color: var(--accent); }
+
+    .legal-list {
+      list-style: none;
+      margin: 0 0 16px 0;
+      padding: 0;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      padding-left: 0;
+      gap: 11px;
     }
 
-    .policy-section ul li {
-      list-style: none;
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--ink-soft);
-      padding-left: 18px;
+    .legal-list li {
       position: relative;
-      max-width: 66ch;
+      padding-left: 26px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
     }
 
-    .policy-section ul li::before {
+    .legal-list li::before {
       content: "—";
       position: absolute;
       left: 0;
-      font-family: var(--serif);
+      top: 0;
       color: var(--slate);
-      font-size: 13px;
+      font-family: var(--serif);
     }
 
-    .policy-section a {
-      color: var(--accent-deep);
-      text-decoration: underline;
-      text-decoration-color: rgba(14, 90, 119, 0.3);
-      text-underline-offset: 3px;
-      transition: text-decoration-color 160ms ease;
+    .legal-list li strong {
+      color: var(--ink);
+      font-weight: 480;
     }
 
-    .policy-section a:hover {
-      text-decoration-color: var(--accent-deep);
-    }
-
-    .policy-highlight {
-      margin-top: 18px;
-      padding: 16px 20px;
+    .legal-callout {
       background: var(--paper);
       border-left: 2px solid var(--accent);
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--ink-soft);
-      max-width: 66ch;
+      padding: 24px 28px;
+      margin: 8px 0 16px 0;
     }
+
+    .legal-callout .callout-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 10px;
+    }
+
+    .legal-callout p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .legal-callout p + p { margin-top: 12px; }
   </style>
 </head>
 <body>
-
-  <!-- Nav -->
   <header class="nav">
     <div class="wrap nav-inner">
       <a href="index.html" class="wordmark">
@@ -177,212 +216,228 @@
       </nav>
       <div class="nav-status">
         <span class="dot"></span>
-        Accepting Q3 '26
+        Accepting Q3 ’26
       </div>
     </div>
   </header>
 
-  <!-- Page header -->
-  <section class="section hero" style="padding-top: clamp(60px,8vw,120px); padding-bottom: clamp(48px,6vw,80px);">
+  <section class="section hero legal-hero" id="top">
     <div class="wrap">
       <div class="hero-eyebrow">
-        <span>Legal · Privacy &amp; Data Protection</span>
+        <span>Legal · Data protection</span>
       </div>
-      <h1 class="hero-headline" style="font-size: clamp(44px,6vw,88px); max-width: 12ch;">
-        Privacy<br /><em>Policy</em>
-      </h1>
-      <p class="hero-lead" style="margin-top: 28px; max-width: 52ch;">
-        This policy explains how Sylfaen Advisory Limited collects, uses, and protects your personal data, and the rights you have under UK data protection law.
+      <h1 class="hero-headline">Privacy <em>Policy.</em></h1>
+      <p class="hero-lead" style="margin-top: 28px; max-width: 56ch;">
+        How we collect, use and safeguard personal data — written plainly,
+        for the professionals and organisations we work with. We hold data
+        as a <strong>foundation</strong> to be protected, not a resource to be exploited.
       </p>
     </div>
   </section>
 
-  <!-- Policy content -->
-  <section class="section section-rule" style="padding-top: clamp(40px,5vw,80px); padding-bottom: clamp(60px,8vw,120px);">
+  <section class="section section-rule">
     <div class="wrap">
-      <div class="policy-layout">
-
-        <!-- Aside metadata -->
-        <aside class="policy-aside">
-          <div class="policy-meta">
-            <div class="policy-meta-row">
-              <span class="k">Last updated</span>
-              <span class="v">June 2026</span>
-            </div>
-            <div class="policy-meta-row">
-              <span class="k">Controller</span>
-              <span class="v">Sylfaen Advisory Limited</span>
-            </div>
-            <div class="policy-meta-row">
-              <span class="k">Registered</span>
-              <span class="v">Wales, United Kingdom</span>
-            </div>
-            <div class="policy-meta-row">
-              <span class="k">Company No.</span>
-              <span class="v">[COMPANY NUMBER]</span>
-            </div>
-            <div class="policy-meta-row">
-              <span class="k">Data enquiries</span>
-              <span class="v"><a href="mailto:mark@sylfaenadvisory.co.uk" style="color: var(--accent-deep);">mark@sylfaenadvisory.co.uk</a></span>
-            </div>
+      <div class="legal-layout">
+        <aside class="legal-aside">
+          <div class="meta-row">
+            <span class="k">Last updated</span>
+            <span class="v">8 June 2026</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Data controller</span>
+            <span class="v">Sylfaen Advisory Limited</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Company number</span>
+            <span class="v">17275026</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">ICO registration</span>
+            <span class="v">C1967400</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Registered</span>
+            <span class="v">Wales, United Kingdom</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Data protection contact</span>
+            <span class="v"><a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></span>
+          </div>
+          <div class="meta-foot">
+            UK GDPR · Data Protection Act 2018 · B2B consultancy
           </div>
         </aside>
 
-        <!-- Body -->
-        <div class="policy-body">
-
-          <div class="policy-section">
-            <div class="policy-eyebrow">01 — Who we are</div>
-            <h2>The data controller</h2>
+        <div class="legal-body">
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">01</span>Who we are</div>
+            <h2>The practice responsible for your data.</h2>
             <p>
-              Sylfaen Advisory Limited is a construction assurance consultancy registered in Wales, United Kingdom. We provide information management consultancy services, including CDE environment design, ISO 19650 compliance advisory, and data assurance engagements.
+              Sylfaen Advisory Limited is a construction assurance consultancy
+              registered in Wales, providing specialist information management,
+              CDE engineering and ISO 19650 compliance services to the UK
+              construction sector.
             </p>
             <p>
-              For the purposes of UK data protection law, Sylfaen Advisory Limited is the data controller for the personal data described in this policy. Our primary contact for data protection matters is Mark Biscoe, reachable at <a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a>.
+              We are the data controller for the personal data described in this
+              policy. The individual responsible for data protection is
+              <strong> Mark Biscoe</strong>, Principal, who can be reached at
+              <a href="mailto:mark@sylfaenadvisory.co.uk"> mark@sylfaenadvisory.co.uk</a>.
+              Our company number is <strong>17275026</strong>, and our ICO
+              registration number is <strong>C1967400</strong>.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">02 — What we collect</div>
-            <h2>Personal data we may hold</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">02</span>What we collect</div>
+            <h2>The data we hold, and nothing beyond it.</h2>
             <p>
-              As a B2B consultancy, we collect and hold personal data relating to business contacts, prospective clients, and individuals at client organisations. This typically includes:
+              We are a business-to-business consultancy. The personal data we
+              process relates to professional contacts at the organisations we
+              work with or are in conversation with. Specifically:
             </p>
-            <ul>
+            <ul class="legal-list">
               <li>Names and job titles</li>
-              <li>Business email addresses</li>
-              <li>Business telephone numbers</li>
-              <li>Company or organisation names</li>
-              <li>Project or engagement context provided in enquiry forms or correspondence</li>
-              <li>Records of communications and meeting notes</li>
+              <li>Business email addresses and business phone numbers</li>
+              <li>Company and organisation names</li>
+              <li>Enquiry and project context you choose to share with us</li>
+              <li>Records of correspondence between us</li>
             </ul>
-            <p style="margin-top: 14px;">
-              We do not collect or store sensitive personal data (as defined under UK GDPR Article 9), financial account details, or personal data relating to individuals who are not acting in a professional or business capacity.
+            <p>
+              We do not collect special category (sensitive) data, and we do not
+              process consumer or individual-customer data. We only ask for what
+              an engagement genuinely requires.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">03 — Legal basis</div>
-            <h2>Why we are permitted to process your data</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">03</span>Legal basis</div>
+            <h2>Why we are permitted to process it.</h2>
             <p>
-              We process personal data on the basis of <strong>legitimate interests</strong> (UK GDPR Article 6(1)(f)), specifically the legitimate interests of running a professional B2B consultancy practice. These interests include:
+              We rely on <strong>legitimate interests</strong> under Article 6(1)(f)
+              of the UK GDPR as our lawful basis for processing personal data in a
+              professional, business-to-business context.
             </p>
-            <ul>
-              <li>Responding to business enquiries and evaluating engagement opportunities</li>
-              <li>Delivering contracted consultancy services to client organisations</li>
-              <li>Maintaining records of professional relationships for continuity of service</li>
-              <li>Communicating relevant practice updates to individuals who have engaged with us</li>
-            </ul>
-            <div class="policy-highlight">
-              We have assessed that our legitimate interests are not overridden by your rights and interests, given the strictly B2B context of our work. You have the right to object to processing at any time — see Section 07.
+            <div class="legal-callout">
+              <div class="callout-label">Our legitimate interests</div>
+              <p>
+                We process your data to respond to business enquiries, to deliver
+                consultancy services, to maintain professional relationship
+                records, and to share occasional practice updates relevant to your
+                work. We have assessed that this processing is necessary, limited,
+                and within the reasonable expectations of professional contacts.
+              </p>
+              <p>
+                You have the right to object to processing carried out on the basis
+                of legitimate interests at any time — see Section 07.
+              </p>
             </div>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">04 — How we use your data</div>
-            <h2>Purposes of processing</h2>
-            <p>
-              We use personal data for the following purposes:
-            </p>
-            <ul>
-              <li>Responding to and managing engagement enquiries</li>
-              <li>Planning, delivering, and following up on consultancy engagements</li>
-              <li>Sending engagement letters, proposals, and project correspondence</li>
-              <li>Maintaining records required for professional indemnity insurance purposes</li>
-              <li>Occasional direct contact about practice news relevant to your professional role — you may opt out at any time</li>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">04</span>How we use your data</div>
+            <h2>What the data is actually for.</h2>
+            <ul class="legal-list">
+              <li>Responding to enquiries and conversations you initiate</li>
+              <li>Delivering engagements, proposals and related correspondence</li>
+              <li>Maintaining records for professional indemnity purposes</li>
+              <li>Occasional, relevant contact about our practice — with a clear opt-out every time</li>
             </ul>
-            <p style="margin-top: 14px;">
-              We will not use your personal data for automated decision-making or profiling, and we will not send unsolicited marketing communications.
+            <p>
+              We do not carry out automated decision-making or profiling, and we
+              do not send unsolicited marketing. Any non-essential communication is
+              relevant to your professional role and easy to decline.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">05 — Retention</div>
-            <h2>How long we keep your data</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">05</span>Retention</div>
+            <h2>How long we keep it.</h2>
             <p>
-              We retain personal data for <strong>three years</strong> from the date of last meaningful contact — defined as a response to a communication, an active engagement, or an explicit request to remain in contact.
+              We retain personal data for <strong>three years from our last
+              meaningful contact</strong> with you. After that, it is deleted in
+              the ordinary course of our records housekeeping.
             </p>
             <p>
-              Where we have a contractual or professional obligation to retain records for a longer period (for example, records relevant to a professional indemnity insurance claim), we will retain only the minimum data necessary for that purpose.
-            </p>
-            <p>
-              At the end of the retention period, personal data is securely deleted from our systems and from any processors acting on our behalf.
-            </p>
-            <p>
-              You may request erasure at any time — see Section 07. We will act on erasure requests within 30 days unless a legal or professional obligation prevents us from doing so, in which case we will explain the specific reason.
+              We keep data for longer only where a professional indemnity
+              obligation requires it, and in that case we retain the minimum data
+              necessary for that purpose alone. Where you ask us to erase your
+              data, we action the request within 30 days.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">06 — Sharing your data</div>
-            <h2>Third-party processors and disclosure</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">06</span>Sharing</div>
+            <h2>Who else, if anyone, sees your data.</h2>
             <p>
-              We do not sell, rent, or share personal data with third parties for their own marketing purposes under any circumstances.
+              We do not sell your data, and we never share it for marketing
+              purposes. We use a small number of trusted processors purely to
+              operate the practice:
             </p>
-            <p>
-              We use the following third-party processors who may handle personal data on our behalf under appropriate data processing agreements:
-            </p>
-            <ul>
-              <li><strong>HubSpot, Inc.</strong> — CRM platform used to manage contact records and engagement correspondence. HubSpot processes data under a Data Processing Agreement and maintains EU/UK Standard Contractual Clauses for international transfers.</li>
-              <li><strong>Formspree, Inc.</strong> — form submission processor used to receive enquiries submitted via this website. Data is forwarded to our email and deleted from Formspree servers after delivery.</li>
+            <ul class="legal-list">
+              <li><strong>HubSpot</strong> — our CRM, used to manage enquiries and relationship records, under a data processing agreement incorporating Standard Contractual Clauses</li>
+              <li><strong>Formspree</strong> — processes submissions from our enquiry form; submission data is deleted after delivery to us</li>
             </ul>
-            <p style="margin-top: 14px;">
-              We may disclose personal data to third parties where required by law, court order, or regulation, or to protect the rights, property, or safety of Sylfaen Advisory Limited, our clients, or others.
+            <p>
+              We will disclose data to law enforcement or regulatory bodies only
+              where we are legally required to do so.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">07 — Your rights</div>
-            <h2>Rights under UK GDPR</h2>
-            <p>
-              Under UK data protection law, you have the following rights in relation to your personal data:
-            </p>
-            <ul>
-              <li><strong>Right of access</strong> — request a copy of the personal data we hold about you</li>
-              <li><strong>Right to rectification</strong> — ask us to correct inaccurate or incomplete data</li>
-              <li><strong>Right to erasure</strong> — ask us to delete your data where we have no overriding legitimate purpose or legal obligation to retain it</li>
-              <li><strong>Right to restriction</strong> — ask us to restrict processing in certain circumstances, for example while a correction is being verified</li>
-              <li><strong>Right to portability</strong> — receive your data in a structured, machine-readable format where technically feasible</li>
-              <li><strong>Right to object</strong> — object to processing based on legitimate interests at any time; we will cease processing unless we can demonstrate compelling legitimate grounds</li>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">07</span>Your rights</div>
+            <h2>The rights you hold over your data.</h2>
+            <p>Under UK GDPR you have the right to:</p>
+            <ul class="legal-list">
+              <li><strong>Access</strong> — a copy of the personal data we hold about you</li>
+              <li><strong>Rectification</strong> — correction of inaccurate or incomplete data</li>
+              <li><strong>Erasure</strong> — deletion of your data where appropriate</li>
+              <li><strong>Restriction</strong> — limiting how we use your data</li>
+              <li><strong>Portability</strong> — receiving your data in a portable format</li>
+              <li><strong>Objection</strong> — objecting to processing based on legitimate interests</li>
             </ul>
-            <p style="margin-top: 14px;">
-              To exercise any of these rights, contact us at <a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a>. We will respond within 30 days. There is no charge for reasonable requests.
+            <p>
+              To exercise any of these, email
+              <a href="mailto:mark@sylfaenadvisory.co.uk"> mark@sylfaenadvisory.co.uk</a>.
+              We respond within 30 days and make no charge for reasonable requests.
             </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">08 — Complaints</div>
-            <h2>Your right to complain to the ICO</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">08</span>Complaints</div>
+            <h2>If you are not satisfied.</h2>
             <p>
-              If you are unhappy with how we have handled your personal data, you have the right to lodge a complaint with the Information Commissioner's Office (ICO), the UK supervisory authority for data protection.
+              We would always prefer to resolve any concern with you directly — so
+              please contact us first, and we will do our best to put it right.
             </p>
-            <ul>
-              <li>Website: <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
-              <li>Helpline: 0303 123 1113</li>
-              <li>Address: Information Commissioner's Office, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</li>
+            <p>
+              You also have the right to complain to the Information Commissioner's
+              Office (ICO), the UK's data protection regulator:
+            </p>
+            <ul class="legal-list">
+              <li><a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
+              <li>Helpline — 0303 123 1113</li>
+              <li>Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</li>
             </ul>
-            <p style="margin-top: 14px;">
-              We would always prefer the opportunity to address concerns directly before a formal complaint is made — please contact us first if you are willing to do so.
-            </p>
           </div>
 
-          <div class="policy-section">
-            <div class="policy-eyebrow">09 — Changes</div>
-            <h2>Updates to this policy</h2>
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">09</span>Changes</div>
+            <h2>How we keep this policy current.</h2>
             <p>
-              We may update this policy from time to time. The "Last updated" date in the sidebar reflects the date of the most recent revision. Material changes will be communicated to individuals whose data we hold where reasonably practicable.
+              We may update this policy from time to time. The "last updated" date
+              in the sidebar always reflects the latest revision.
             </p>
             <p>
-              The current version of this policy is always available at <a href="https://sylfaenadvisory.co.uk/privacy.html">sylfaenadvisory.co.uk/privacy.html</a>.
+              The current version is always available at
+              <a href="https://sylfaenadvisory.co.uk/privacy.html"> sylfaenadvisory.co.uk/privacy.html</a>.
             </p>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer-mono-title">Sylfaen.</div>
@@ -427,6 +482,5 @@
       </div>
     </div>
   </footer>
-
 </body>
 </html>

@@ -299,8 +299,8 @@ function AwenSection() {
           </div>
           <p className="section-sub" style={{ marginTop: -40, marginBottom: 16, marginLeft: 'auto', maxWidth: '64ch' }}>
             Awen is our internal data assurance platform, purpose-built for ISO 19650
-            engagements. Below is a live sample workspace — explore the tabs to see
-            how we audit a real-world CDE.
+            engagements. Below is a live sample workspace — pick a document type, then
+            select a section and generate ISO 19650-compliant content from the project profile.
           </p>
           <AwenDashboard />
           <div style={{ marginTop: 32, paddingTop: 24, borderTop: '1px solid rgba(241,237,227,0.08)', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24, color: 'rgba(241,237,227,0.7)' }} className="awen-features">
