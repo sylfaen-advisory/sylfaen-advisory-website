@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sylfaenadvisory.co.uk/sitemap-index.xml
