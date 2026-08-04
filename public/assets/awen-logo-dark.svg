@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80">
+  <title>Awen — by Sylfaen Advisory</title>
+  <desc>Awen platform logo — three-ray mark with wordmark, weight 500 (light, for dark backgrounds)</desc>
+  <g transform="translate(0, 8)">
+    <polygon points="18,0 30,0 44,58 4,58" fill="#0c8f96"></polygon>
+    <polygon points="34,0 46,0 54,58 38,58" fill="#2db8bf"></polygon>
+    <polygon points="50,0 62,0 62,58 58,58" fill="#8fafc0"></polygon>
+    <rect x="2" y="61" width="62" height="2.5" fill="#2db8bf"></rect>
+  </g>
+  <text x="80" y="52" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="500" letter-spacing="0.12em" fill="#ECEAE3">awen</text>
+  <text x="81" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="400" letter-spacing="0.28em" fill="#5be3d4">BY SYLFAEN ADVISORY</text>
+</svg>

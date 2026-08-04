@@ -1,0 +1,25 @@
+---
+interface Props {
+  src: string;
+  roman: string;
+  label: string;
+  marker: string;
+  height?: string;
+}
+const { src, roman, label, marker, height = '260px' } = Astro.props;
+---
+<section class="plate plate-divider" aria-label={`${roman} — divider`}>
+  <div class="plate-frame" style={{ height }}>
+    <img src={src} alt="" />
+    <div class="plate-top-rule">
+      <span>{roman}</span>
+      <span>{marker}</span>
+    </div>
+    <div class="plate-caption plate-caption-tight">
+      <div class="plate-label" style="font-size: clamp(16px, 1.6vw, 22px);">
+        <span class="roman">{label}</span>
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>

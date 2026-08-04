@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import Practice from '../components/Practice.astro';
+import Divider from '../components/Divider.astro';
+import Engagements from '../components/Engagements.astro';
+import AwenSection from '../components/AwenSection.astro';
+import PlateIII from '../components/PlateIII.astro';
+import Credentials from '../components/Credentials.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Sylfaen Advisory — Construction Assurance Consultants"
+  description="Specialist information management consultancy delivering CDE engineering, ISO 19650 compliance, and data assurance services for the UK construction sector."
+>
+  <Nav />
+  <Hero />
+  <Practice />
+  <Divider
+    src="/assets/divider-precision.jpg"
+    roman="Plate II ½ · Method"
+    label="Plate II ½"
+    marker="On precision · Engagements →"
+  >
+    The work is measured &mdash; <em>fixed scope, fixed fee, fixed deadline.</em>
+  </Divider>
+  <Engagements />
+  <AwenSection />
+  <PlateIII />
+  <Credentials />
+  <Contact />
+  <Footer />
+</Layout>

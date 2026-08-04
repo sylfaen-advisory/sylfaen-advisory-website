@@ -1,0 +1,86 @@
+---
+const TIERS = [
+  {
+    num: 'I',
+    tag: 'Fixed fee · 14 business days',
+    title: 'CDE Health Check & Strategy Roadmap',
+    body: 'A focused diagnostic of your CDE environment. We audit naming conventions, container codes and metadata, score compliance against ISO 19650, and deliver a remediation roadmap your team can execute against. Delivered in weeks, not quarters.',
+    pills: ['Gap analysis', 'Compliance audit', 'Roadmap', 'Stakeholder workshop', 'Executive summary'],
+    price: '£2.5–5k',
+    unit: 'Fixed scope',
+  },
+  {
+    num: 'II',
+    tag: 'Project-based · 6–16 weeks',
+    title: 'Implementation, Migration & Standardisation',
+    body: "End-to-end builds for new CDE environments, legacy data migration with provenance preserved, metadata standardisation, and supply-chain rollout. Platform-agnostic — we'll meet you where your asset already lives.",
+    pills: ['Asite', 'Autodesk Docs', 'Dalux', 'ProjectWise', 'Viewpoint', 'BCDE'],
+    price: '£10–25k+',
+    unit: 'Project scope',
+  },
+  {
+    num: 'III',
+    tag: 'Monthly retainer · 6-month minimum',
+    title: 'Information Management as a Service',
+    body: 'Fractional Information Manager or CDE Administrator for asset owners and scaling contractors. Continuous monitoring via Awen, monthly compliance reporting, and a named point of contact. Retained capability without retained payroll.',
+    pills: ['Fractional IM', 'Monitoring', 'Monthly reports', 'Named contact', 'Awen included'],
+    price: '£2.5–4k',
+    unit: 'per month',
+  },
+  {
+    num: 'IV',
+    tag: 'Advisory · Project-based',
+    title: 'AI Governance & Readiness',
+    body: 'Structured advisory for construction and property sector organisations introducing AI tools into project delivery workflows. We assess governance gaps against emerging frameworks (ISO 42001, RICS guidance, BSA obligations), produce policy documentation, and advise on responsible deployment — with particular reference to document-intensive and compliance-critical environments.',
+    pills: ['AI readiness assessment', 'Governance framework', 'Policy documentation', 'RICS-aligned delivery', 'Implementation roadmap'],
+    price: '£3–8k',
+    unit: 'Project scope',
+  },
+];
+---
+<section class="section" id="engagements">
+  <div class="engagements">
+    <div class="engagements-wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="num">02</span>Engagements</div>
+        <h2 class="section-title">
+          Ways to engage &mdash; <em>each priced openly,</em> each scoped to remove the usual friction.
+        </h2>
+      </div>
+
+      <div class="tiers">
+        {TIERS.map((t) => (
+          <a href="#contact" class="tier">
+            <div class="tier-num">{t.num}</div>
+            <div>
+              <div class="tier-tag">{t.tag}</div>
+              <div class="tier-title">{t.title}</div>
+            </div>
+            <div class="tier-meta">
+              {t.body}
+              <div class="tier-includes">
+                {t.pills.map((p) => <span class="tier-pill">{p}</span>)}
+              </div>
+            </div>
+            <div class="tier-price">
+              <span class="amount">{t.price}</span>
+              <span class="unit">{t.unit}</span>
+              <span class="unit">Excl. VAT</span>
+              <span class="arrow">Begin <span style="font-style: italic;">&rarr;</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div style="padding-top: 32px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px;">
+        <span style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--slate); text-transform: uppercase;">
+          Fees published in good faith &middot; final scope agreed before any engagement begins<br />
+          All fees quoted exclusive of VAT. Sylfaen Advisory Limited is VAT registered (VRN 523 1958 92).
+        </span>
+        <a href="#contact" class="btn btn-ghost">
+          Request engagement letter <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

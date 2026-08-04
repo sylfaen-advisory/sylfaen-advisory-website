@@ -1,0 +1,28 @@
+---
+interface Props {
+  base?: string;
+}
+const { base = '' } = Astro.props;
+---
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href={`${base}#top`} class="wordmark">
+      <img src="/assets/sylfaen-logo-mark.png" alt="" class="mark-svg" />
+      <span class="label">
+        <span>Sylfaen Advisory</span>
+        <span class="sub">Construction Assurance</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href={`${base}#practice`}><span class="num">01</span>Practice</a>
+      <a href={`${base}#engagements`}><span class="num">02</span>Engagements</a>
+      <a href={`${base}#awen`}><span class="num">03</span>Awen</a>
+      <a href={`${base}#credentials`}><span class="num">04</span>Credentials</a>
+      <a href={`${base}#contact`}><span class="num">05</span>Contact</a>
+    </nav>
+    <div class="nav-status">
+      <span class="dot"></span>
+      Accepting Q3 &rsquo;26
+    </div>
+  </div>
+</header>

@@ -1,0 +1,54 @@
+---
+interface Props {
+  base?: string;
+}
+const { base = '' } = Astro.props;
+---
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-mono-title">Sylfaen.</div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Practice</h4>
+        <ul>
+          <li>Sylfaen Advisory Ltd</li>
+          <li>Construction Assurance Consultants</li>
+          <li>Wales, UK &middot; operating UK-wide</li>
+          <li>Registered in England &amp; Wales &middot; No. 17275026</li>
+          <li>VAT No. 523 1958 92</li>
+          <li>ICO Registration &middot; C1967400</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Engagements</h4>
+        <ul>
+          <li><a href={`${base}#engagements`}>Health Check (Tier I)</a></li>
+          <li><a href={`${base}#engagements`}>Implementation (Tier II)</a></li>
+          <li><a href={`${base}#engagements`}>Retainer (Tier III)</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tooling</h4>
+        <ul>
+          <li><a href={`${base}#awen`}>Awen platform</a></li>
+          <li><a href={`${base}#awen`}>Live sample workspace</a></li>
+          <li><a href={`${base}#awen`}>Request demo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></li>
+          <li><a href={`${base}#contact`}>Engagement enquiry</a></li>
+          <li><a href={`${base}#contact`}>Book introduction</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/ethical-employment-policy.html">Ethical Employment Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; 2026 Sylfaen Advisory &middot; Wales, UK</span>
+      <span>Powered by Awen</span>
+    </div>
+  </div>
+</footer>
