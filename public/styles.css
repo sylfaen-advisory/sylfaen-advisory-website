@@ -113,6 +113,15 @@ button {
   display: inline-block;
 }
 
+.section-kicker {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 18px;
+}
+
 .section-title {
   font-family: var(--serif);
   font-weight: 380;
