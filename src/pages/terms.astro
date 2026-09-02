@@ -1,0 +1,490 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Terms of Service — Sylfaen Advisory"
+  description="The terms on which Sylfaen Advisory Limited grants access to the Awen platform, typically as part of a Tier 2 or Tier 3 engagement under a signed Master Services Agreement."
+>
+  <style>
+    /* === Terms page — scoped (mirrors privacy.astro) === */
+
+    .legal-hero {
+      padding-top: clamp(72px, 8vw, 120px);
+      padding-bottom: clamp(48px, 6vw, 80px);
+    }
+
+    .legal-hero .hero-headline {
+      font-size: clamp(40px, 5.4vw, 76px);
+      max-width: 20ch;
+    }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    @media (max-width: 880px) {
+      .legal-layout { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .legal-aside {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+    }
+
+    @media (max-width: 880px) {
+      .legal-aside { position: static; }
+    }
+
+    .legal-aside .meta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+
+    .legal-aside .meta-row:last-child { border-bottom: none; }
+
+    .legal-aside .meta-row .k {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .legal-aside .meta-row .v {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .legal-aside .meta-row .v a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .legal-aside .meta-foot {
+      padding: 16px 22px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      line-height: 1.6;
+      text-transform: uppercase;
+      color: var(--slate);
+      background: var(--bg-deep);
+    }
+
+    .legal-body {
+      max-width: 70ch;
+    }
+
+    .legal-intro {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      padding-bottom: clamp(40px, 4.5vw, 64px);
+      margin-bottom: clamp(40px, 4.5vw, 64px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .legal-intro:last-child { margin-bottom: 0; }
+
+    .legal-section {
+      padding-bottom: clamp(40px, 4.5vw, 64px);
+      margin-bottom: clamp(40px, 4.5vw, 64px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .legal-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .legal-section .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .legal-section h2 {
+      font-family: var(--serif);
+      font-weight: 380;
+      font-size: clamp(26px, 2.8vw, 38px);
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 22px;
+      text-wrap: balance;
+    }
+
+    .legal-section p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+    }
+
+    .legal-section p:last-child { margin-bottom: 0; }
+
+    .legal-section p .cl {
+      color: var(--ink);
+      font-weight: 480;
+      margin-right: 8px;
+    }
+
+    .legal-section a {
+      color: var(--accent-deep);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: color 160ms ease;
+    }
+
+    .legal-section a:hover { color: var(--accent); }
+
+    .legal-list {
+      list-style: none;
+      margin: 0 0 16px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .legal-list li {
+      position: relative;
+      padding-left: 26px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .legal-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--slate);
+      font-family: var(--serif);
+    }
+
+    .legal-list.legal-list--alpha li { padding-left: 34px; }
+
+    .legal-list.legal-list--alpha li::before {
+      content: "(" counter(alpha, lower-alpha) ")";
+      counter-increment: alpha;
+      font-family: var(--mono);
+      font-size: 12px;
+      top: 2px;
+    }
+
+    .legal-list.legal-list--alpha { counter-reset: alpha; }
+
+    .legal-list li strong {
+      color: var(--ink);
+      font-weight: 480;
+    }
+
+    .legal-callout {
+      background: var(--paper);
+      border-left: 2px solid var(--accent);
+      padding: 24px 28px;
+      margin: 8px 0 16px 0;
+    }
+
+    .legal-callout .callout-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 10px;
+    }
+
+    .legal-callout p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+    }
+
+    .legal-callout p + p { margin-top: 12px; }
+  </style>
+
+  <Nav base="/" />
+
+  <section class="section hero legal-hero" id="top">
+    <div class="wrap">
+      <div class="hero-eyebrow">
+        <span>Legal &middot; Platform terms</span>
+      </div>
+      <h1 class="hero-headline">Terms of <em>Service.</em></h1>
+      <p class="hero-lead" style="margin-top: 28px; max-width: 58ch;">
+        The terms on which we grant access to the <strong>Awen</strong> platform &mdash;
+        typically as part of a Tier 2 or Tier 3 engagement under a signed Master
+        Services Agreement. Written to sit alongside your MSA and Statement of
+        Work, not to replace them.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-rule">
+    <div class="wrap">
+      <div class="legal-layout">
+        <aside class="legal-aside">
+          <div class="meta-row">
+            <span class="k">Effective date</span>
+            <span class="v">2 September 2026</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Provider</span>
+            <span class="v">Sylfaen Advisory Limited</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Company number</span>
+            <span class="v">17275026</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Registered</span>
+            <span class="v">Wales, United Kingdom</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Applies to</span>
+            <span class="v">Awen platform &middot; Tier 2&ndash;3 engagements</span>
+          </div>
+          <div class="meta-row">
+            <span class="k">Questions about these Terms</span>
+            <span class="v"><a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></span>
+          </div>
+          <div class="meta-foot">
+            England &amp; Wales &middot; MSA &amp; SOW &middot; ISO 19650 &middot; Building Safety Act 2022
+          </div>
+        </aside>
+
+        <div class="legal-body">
+          <p class="legal-intro">
+            These Terms of Service (&ldquo;Terms&rdquo;) govern access to and use of the
+            Awen platform (&ldquo;the Platform&rdquo;) by any individual or organisation
+            granted access by Sylfaen Advisory Limited (&ldquo;Sylfaen&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;),
+            typically as part of a Tier 2 or Tier 3 engagement under a signed
+            Master Services Agreement (&ldquo;MSA&rdquo;) and Statement of Work (&ldquo;SOW&rdquo;).
+            Capitalised terms not defined here have the meaning given in the MSA.
+          </p>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">01</span>Acceptance</div>
+            <h2>Agreeing to be bound by these Terms.</h2>
+            <p>
+              <span class="cl">1.1</span>By accessing or using the Platform, you
+              confirm that you are authorised to do so by the Client organisation
+              named in the relevant SOW, and that you agree to be bound by these
+              Terms.
+            </p>
+            <p>
+              <span class="cl">1.2</span>If you are accessing the Platform on
+              behalf of an organisation, you confirm you have authority to bind
+              that organisation to these Terms.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">02</span>The Platform</div>
+            <h2>What the Platform is, and what it is for.</h2>
+            <p>
+              <span class="cl">2.1</span>The Platform is an AI-assisted tool that
+              checks project information and documents against client
+              requirements, industry standards (including ISO 19650), and
+              project-specific frameworks, and reports on compliance and gaps.
+            </p>
+            <p>
+              <span class="cl">2.2</span>The Platform is provided to support
+              Sylfaen&rsquo;s delivery of the Services and, from Tier 2 onward, to give
+              the Client visibility of and interaction with that process. It is
+              not a fully automated compliance tool: outputs may be reviewed, and
+              in some cases must be reviewed, by a Sylfaen consultant before being
+              relied upon.
+            </p>
+            <p>
+              <span class="cl">2.3</span>Sylfaen may update, modify, or improve
+              the Platform from time to time. We will use reasonable endeavours
+              not to materially reduce the core functionality relevant to your SOW
+              without reasonable notice.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">03</span>Accounts and Access</div>
+            <h2>Your account, and how long access lasts.</h2>
+            <p>
+              <span class="cl">3.1</span>Where individual user accounts are
+              issued, you are responsible for keeping your login credentials
+              confidential and for all activity that occurs under your account.
+            </p>
+            <p>
+              <span class="cl">3.2</span>You must notify Sylfaen promptly if you
+              suspect unauthorised access to your account.
+            </p>
+            <p>
+              <span class="cl">3.3</span>Sylfaen may suspend or restrict access to
+              the Platform where reasonably necessary for security, maintenance,
+              to prevent misuse, or where fees due under the MSA are overdue (in
+              accordance with the MSA&rsquo;s payment terms).
+            </p>
+            <p>
+              <span class="cl">3.4</span>Access to the Platform is granted only
+              for the duration of the relevant SOW (or, for a retainer, for as
+              long as that retainer remains active) and ends automatically on
+              expiry or termination of the SOW, unless otherwise agreed.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">04</span>Acceptable Use</div>
+            <h2>What you may not do with the Platform.</h2>
+            <p>
+              <span class="cl">4.1</span>You will not, and will not permit any
+              third party to:
+            </p>
+            <ul class="legal-list legal-list--alpha">
+              <li>use the Platform to process information you do not have the right to share;</li>
+              <li>attempt to reverse-engineer, decompile, or extract the underlying models, prompts, or logic used by the Platform;</li>
+              <li>use the Platform to build a competing product or service;</li>
+              <li>share login credentials with anyone not authorised under the relevant SOW;</li>
+              <li>use the Platform in a way that breaches any applicable law, including data protection law.</li>
+            </ul>
+            <p>
+              <span class="cl">4.2</span>Sylfaen may suspend access immediately,
+              without prior notice, if we reasonably believe these Terms are being
+              breached in a way that creates a security, legal, or confidentiality
+              risk, and will notify you as soon as reasonably practicable.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">05</span>Client Data and Outputs</div>
+            <h2>Who owns what goes in, and what comes out.</h2>
+            <p>
+              <span class="cl">5.1</span>You retain all rights in the documents,
+              project information, and data you submit to the Platform (&ldquo;Client
+              Data&rdquo;). You grant Sylfaen a licence to process Client Data solely to
+              provide the Services and operate the Platform.
+            </p>
+            <p>
+              <span class="cl">5.2</span>Reports, compliance scores, dashboards,
+              and other outputs generated by the Platform for you (&ldquo;Outputs&rdquo;) may
+              be used for your own internal business purposes, in accordance with
+              the licence granted under the MSA.
+            </p>
+            <p>
+              <span class="cl">5.3</span>The Platform&rsquo;s underlying architecture,
+              scoring methodology, and any anonymised or aggregated data derived
+              from your use (that does not identify you or disclose your
+              confidential information) remain Sylfaen&rsquo;s property, as set out in
+              the MSA.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">06</span>AI-Assisted Outputs</div>
+            <h2>AI-assisted outputs &mdash; no warranty of completeness.</h2>
+            <p>
+              <span class="cl">6.1</span>The Platform uses AI-assisted analysis to
+              check documents against standards and requirements. While Sylfaen
+              applies reasonable skill and care in configuring and reviewing the
+              Platform&rsquo;s outputs, AI-assisted analysis may not identify every
+              issue, and may occasionally flag something incorrectly.
+            </p>
+            <div class="legal-callout">
+              <div class="callout-label">Your obligations remain your own</div>
+              <p>
+                <span class="cl">6.2</span>Outputs are a tool to support your own
+                compliance and governance processes, not a replacement for them.
+                You remain responsible for your own statutory and contractual
+                obligations, including under ISO 19650 and the Building Safety Act
+                2022, regardless of what the Platform reports.
+              </p>
+              <p>
+                <span class="cl">6.3</span>Where an Output has not yet been
+                reviewed by a Sylfaen consultant (for example, live in-progress
+                scoring on a Tier 2/3 dashboard), it is marked as provisional and
+                should be treated accordingly.
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">07</span>Availability</div>
+            <h2>What we do and do not guarantee on uptime.</h2>
+            <p>
+              <span class="cl">7.1</span>Sylfaen will use reasonable endeavours to
+              keep the Platform available, but does not guarantee uninterrupted
+              access. Planned maintenance will, where practicable, be notified in
+              advance.
+            </p>
+            <p>
+              <span class="cl">7.2</span>Sylfaen is not liable for unavailability
+              caused by circumstances beyond its reasonable control, including
+              third-party hosting or AI service provider outages.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">08</span>Suspension and Termination</div>
+            <h2>When access ends, and what happens to your data.</h2>
+            <p>
+              <span class="cl">8.1</span>Sylfaen may suspend or terminate your
+              access to the Platform in accordance with clauses 3.3, 3.4, and 4.2
+              above, or on termination of the underlying MSA or SOW.
+            </p>
+            <p>
+              <span class="cl">8.2</span>On termination of access, Sylfaen will,
+              on request made within 30 days, make available a reasonable export
+              of the Client Data and Outputs held in the Platform, in a commonly
+              used format, save to the extent retention is required by law or
+              ongoing dispute.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">09</span>Liability and General</div>
+            <h2>Liability, governing law, and changes.</h2>
+            <p>
+              <span class="cl">9.1</span>Liability in connection with the Platform
+              is governed by the liability provisions of the MSA (in particular,
+              clause 9), which apply to these Terms as if set out here in full.
+            </p>
+            <p>
+              <span class="cl">9.2</span>These Terms are governed by the law of
+              England and Wales, consistent with the MSA.
+            </p>
+            <p>
+              <span class="cl">9.3</span>Sylfaen may update these Terms from time
+              to time, for example to reflect changes to the Platform or
+              applicable law. Material changes affecting an active SOW will be
+              notified to the Client in advance.
+            </p>
+            <p>
+              Questions about these Terms can be sent to
+              <a href="mailto:mark@sylfaenadvisory.co.uk"> mark@sylfaenadvisory.co.uk</a>.
+              The current version is always available at
+              <a href="https://sylfaenadvisory.co.uk/terms.html"> sylfaenadvisory.co.uk/terms.html</a>.
+              See also our <a href="/privacy.html">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer base="/" />
+</Layout>
