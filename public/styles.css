@@ -903,6 +903,25 @@ button {
 
 .tier:hover .tier-price .arrow { gap: 10px; }
 
+/* Card with its own links (Tier IV): "Begin" covers the card; inner links sit above it */
+.tier-stretch::after { content: ""; position: absolute; inset: 0; }
+.tier-link {
+  position: relative;
+  z-index: 1;
+  color: var(--teal-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.tier-link:hover { text-decoration-thickness: 2px; }
+.tier-price .nowrap { white-space: nowrap; }
+.tier-price .price-note {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 220px;
+}
+
 /* === Awen interactive === */
 
 .awen {

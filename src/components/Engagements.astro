@@ -32,10 +32,13 @@ const TIERS = [
     num: 'IV',
     tag: 'Advisory · Project-based',
     title: 'AI Governance & Readiness',
-    body: 'Structured advisory for construction and property sector organisations introducing AI tools into project delivery workflows. We assess governance gaps against emerging frameworks (ISO 42001, RICS guidance, BSA obligations), produce policy documentation, and advise on responsible deployment — with particular reference to document-intensive and compliance-critical environments.',
-    pills: ['AI readiness assessment', 'Governance framework', 'Policy documentation', 'RICS-aligned delivery', 'Implementation roadmap'],
-    price: '£3–8k',
-    unit: 'Project scope',
+    body: 'Structured advisory for construction and property sector organisations introducing AI tools into project delivery workflows. We assess governance gaps against emerging frameworks (ISO 42001, the RICS AI standard, BSA obligations), produce policy documentation, and advise on responsible deployment — with particular reference to document-intensive and compliance-critical environments.',
+    pills: ['AI readiness assessment', 'Governance framework', 'Policy documentation', 'Implementation roadmap'],
+    // No published price: RICS-regulated firms get fixed fees on their own page.
+    priceNote: 'Priced per engagement',
+    priceLink: { href: '/rics-ai-governance', text: 'RICS-regulated firms: fixed fees →' },
+    // Link "the RICS AI standard" in the body to the RICS page.
+    bodyLink: { text: 'the RICS AI standard', href: '/rics-ai-governance' },
   },
 ];
 ---
@@ -47,27 +50,39 @@ const TIERS = [
       </SectionHeader>
 
       <div class="tiers">
-        {TIERS.map((t) => (
-          <a href="#contact" class="tier">
-            <div class="tier-num">{t.num}</div>
-            <div>
-              <div class="tier-tag">{t.tag}</div>
-              <div class="tier-title">{t.title}</div>
-            </div>
-            <div class="tier-meta">
-              {t.body}
-              <div class="tier-includes">
-                {t.pills.map((p) => <span class="tier-pill">{p}</span>)}
+        {TIERS.map((t) => {
+          const Card = t.priceLink ? 'div' : 'a';
+          const [before, after] = t.bodyLink ? t.body.split(t.bodyLink.text) : [t.body, null];
+          return (
+            <Card href={Card === 'a' ? '#contact' : undefined} class:list={['tier', { 'tier--linked': Card === 'div' }]}>
+              <div class="tier-num">{t.num}</div>
+              <div>
+                <div class="tier-tag">{t.tag}</div>
+                <div class="tier-title">{t.title}</div>
               </div>
-            </div>
-            <div class="tier-price">
-              <span class="amount">{t.price}</span>
-              <span class="unit">{t.unit}</span>
-              <span class="unit">Excl. VAT</span>
-              <span class="arrow">Begin <span style="font-style: italic;">&rarr;</span></span>
-            </div>
-          </a>
-        ))}
+              <div class="tier-meta">
+                {before}{t.bodyLink && <a class="tier-link" href={t.bodyLink.href}>{t.bodyLink.text}</a>}{after}
+                <div class="tier-includes">
+                  {t.pills.map((p) => <span class="tier-pill">{p}</span>)}
+                </div>
+              </div>
+              <div class="tier-price">
+                {t.priceLink ? (
+                  <span class="price-note">{t.priceNote} · <a class="tier-link" href={t.priceLink.href}><span class="nowrap">{t.priceLink.text.split(' ')[0]}</span> {t.priceLink.text.split(' ').slice(1).join(' ')}</a></span>
+                ) : (
+                  <>
+                    <span class="amount">{t.price}</span>
+                    <span class="unit">{t.unit}</span>
+                    <span class="unit">Excl. VAT</span>
+                  </>
+                )}
+                {Card === 'a'
+                  ? <span class="arrow">Begin <span style="font-style: italic;">&rarr;</span></span>
+                  : <a href="#contact" class="arrow tier-stretch">Begin <span style="font-style: italic;">&rarr;</span></a>}
+              </div>
+            </Card>
+          );
+        })}
       </div>
 
       <div style="padding-top: 32px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 16px;">
