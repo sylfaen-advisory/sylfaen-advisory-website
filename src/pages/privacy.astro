@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+
+// "Last updated" date in the sidebar. Set this on the day the revised
+// notice goes live, e.g. '14 December 2026'.
+const LAST_UPDATED = '[Date to be set on go-live]';
 ---
 <Layout
   title="Privacy Policy — Sylfaen Advisory"
@@ -31,7 +35,7 @@ import Footer from '../components/Footer.astro';
         <aside class="legal-aside">
           <div class="meta-row">
             <span class="k">Last updated</span>
-            <span class="v">8 June 2026</span>
+            <span class="v">{LAST_UPDATED}</span>
           </div>
           <div class="meta-row">
             <span class="k">Data controller</span>
@@ -68,17 +72,25 @@ import Footer from '../components/Footer.astro';
             <h2>The practice responsible for your data.</h2>
             <p>
               Sylfaen Advisory Limited is a construction assurance consultancy
-              registered in Wales, providing specialist information management,
-              CDE engineering and ISO 19650 compliance services to the UK
-              construction sector.
+              registered in Wales. We provide information management, CDE
+              engineering and ISO 19650 services to the UK construction sector,
+              and AI governance advice and training to professional firms.
             </p>
             <p>
               We are the data controller for the personal data described in this
               policy. The individual responsible for data protection is
-              <strong> Mark Biscoe</strong>, Principal, who can be reached at
-              <a href="mailto:mark@sylfaenadvisory.co.uk"> mark@sylfaenadvisory.co.uk</a>.
+              <strong>Mark Biscoe</strong>, Principal, who can be reached at
+              <a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a>.
               Our company number is <strong>17275026</strong>, and our ICO
               registration number is <strong>C1967400</strong>.
+            </p>
+            <p>
+              This policy covers people who contact us, work with us or are in
+              conversation with us. During an engagement we sometimes handle
+              personal data on a client&rsquo;s behalf, such as staff survey
+              responses. We do that as the client&rsquo;s processor under our data
+              processing agreement with them, and the client&rsquo;s own privacy
+              notice applies to that data.
             </p>
           </div>
 
@@ -94,13 +106,18 @@ import Footer from '../components/Footer.astro';
               <li>Names and job titles</li>
               <li>Business email addresses and business phone numbers</li>
               <li>Company and organisation names</li>
-              <li>Enquiry and project context you choose to share with us</li>
+              <li>Enquiry and project context you choose to share with us, including through our enquiry form or when booking a call</li>
               <li>Records of correspondence between us</li>
+              <li>Recordings, transcripts and notes of meetings, where you&rsquo;ve agreed to the meeting being recorded</li>
             </ul>
             <p>
               We do not collect special category (sensitive) data, and we do not
               process consumer or individual-customer data. We only ask for what
               an engagement genuinely requires.
+            </p>
+            <p>
+              Our website analytics are cookie-free and don&rsquo;t identify
+              individual visitors.
             </p>
           </div>
 
@@ -123,7 +140,7 @@ import Footer from '../components/Footer.astro';
               </p>
               <p>
                 You have the right to object to processing carried out on the basis
-                of legitimate interests at any time &mdash; see Section 07.
+                of legitimate interests at any time &mdash; see Section 08.
               </p>
             </div>
           </div>
@@ -134,9 +151,15 @@ import Footer from '../components/Footer.astro';
             <ul class="legal-list">
               <li>Responding to enquiries and conversations you initiate</li>
               <li>Delivering engagements, proposals and related correspondence</li>
+              <li>Keeping notes of meetings and the actions agreed in them</li>
               <li>Maintaining records for professional indemnity purposes</li>
-              <li>Occasional, relevant contact about our practice &mdash; with a clear opt-out every time</li>
+              <li>Occasional, relevant contact about our practice, with a clear opt-out every time</li>
             </ul>
+            <p>
+              We use AI tools, under business terms, to help transcribe meetings,
+              summarise notes and organise correspondence. A person reviews
+              everything they produce, and no decision about you is made by AI.
+            </p>
             <p>
               We do not carry out automated decision-making or profiling, and we
               do not send unsolicited marketing. Any non-essential communication is
@@ -153,10 +176,16 @@ import Footer from '../components/Footer.astro';
               the ordinary course of our records housekeeping.
             </p>
             <p>
+              Meeting recordings and transcripts are kept for a shorter time. They
+              are deleted within three months of an engagement ending or, where no
+              engagement follows, within three months of our last contact. If you
+              ask, we delete them sooner.
+            </p>
+            <p>
               We keep data for longer only where a professional indemnity
               obligation requires it, and in that case we retain the minimum data
               necessary for that purpose alone. Where you ask us to erase your
-              data, we action the request within 30 days.
+              data, we action the request within one month.
             </p>
           </div>
 
@@ -169,9 +198,22 @@ import Footer from '../components/Footer.astro';
               operate the practice:
             </p>
             <ul class="legal-list">
-              <li><strong>HubSpot</strong> &mdash; our CRM, used to manage enquiries and relationship records, under a data processing agreement incorporating Standard Contractual Clauses</li>
-              <li><strong>Formspree</strong> &mdash; processes submissions from our enquiry form; submission data is deleted after delivery to us</li>
+              <li><strong>Google Workspace:</strong> email, calendar and document storage</li>
+              <li><strong>HubSpot:</strong> our CRM, used to manage enquiries and relationship records</li>
+              <li><strong>Formspree:</strong> processes submissions from our enquiry form, and keeps them for 30 days</li>
+              <li><strong>Calendly:</strong> booking introductory calls</li>
+              <li><strong>Microsoft Teams:</strong> online meetings</li>
+              <li><strong>Fireflies.ai:</strong> recording and transcribing meetings, where you&rsquo;ve agreed to recording</li>
+              <li><strong>Anthropic (Claude):</strong> AI assistance with meeting summaries, notes and correspondence, under its business terms, which don&rsquo;t allow your data to be used to train its models</li>
+              <li><strong>FreeAgent:</strong> invoicing and accounts</li>
+              <li><strong>GitHub:</strong> hosting this website</li>
             </ul>
+            <p>
+              Each works under a data processing agreement or equivalent terms. We
+              may also share data with our professional advisers (such as
+              solicitors and accountants) and our insurer, where needed to run the
+              business or handle a claim.
+            </p>
             <p>
               We will disclose data to law enforcement or regulatory bodies only
               where we are legally required to do so.
@@ -179,7 +221,26 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="legal-section">
-            <div class="eyebrow"><span class="num">07</span>Your rights</div>
+            <div class="eyebrow"><span class="num">07</span>International transfers</div>
+            <p>
+              Several of the services in section 06 store or process data outside
+              the UK, mainly in the United States. These include Formspree,
+              HubSpot, Calendly, Fireflies.ai and Anthropic.
+            </p>
+            <p>
+              Where a service is certified under the UK Extension to the EU&ndash;US
+              Data Privacy Framework (the UK&ndash;US data bridge), we rely on that.
+              Otherwise we rely on the UK&rsquo;s International Data Transfer
+              Agreement, or the UK Addendum to the EU Standard Contractual Clauses,
+              as part of our agreement with that service.
+            </p>
+            <p>
+              You can ask us which safeguard applies to a particular service.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <div class="eyebrow"><span class="num">08</span>Your rights</div>
             <h2>The rights you hold over your data.</h2>
             <p>Under UK GDPR you have the right to:</p>
             <ul class="legal-list">
@@ -193,12 +254,12 @@ import Footer from '../components/Footer.astro';
             <p>
               To exercise any of these, email
               <a href="mailto:mark@sylfaenadvisory.co.uk"> mark@sylfaenadvisory.co.uk</a>.
-              We respond within 30 days and make no charge for reasonable requests.
+              We respond within one month and make no charge for reasonable requests.
             </p>
           </div>
 
           <div class="legal-section">
-            <div class="eyebrow"><span class="num">08</span>Complaints</div>
+            <div class="eyebrow"><span class="num">09</span>Complaints</div>
             <h2>If you are not satisfied.</h2>
             <p>
               We would always prefer to resolve any concern with you directly &mdash; so
@@ -216,7 +277,7 @@ import Footer from '../components/Footer.astro';
           </div>
 
           <div class="legal-section">
-            <div class="eyebrow"><span class="num">09</span>Changes</div>
+            <div class="eyebrow"><span class="num">10</span>Changes</div>
             <h2>How we keep this policy current.</h2>
             <p>
               We may update this policy from time to time. The &ldquo;last updated&rdquo; date

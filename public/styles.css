@@ -2151,11 +2151,21 @@ button {
 
 .form-foot .note {
   font-size: 12px;
+  line-height: 1.5;
   color: var(--slate);
   font-style: italic;
   font-family: var(--serif);
-  max-width: 28ch;
+  flex: 1 1 100%;
+  max-width: 62ch;
 }
+
+.form-foot .note a {
+  color: var(--teal-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form-foot .note a:hover { text-decoration-thickness: 2px; }
 
 .form-success {
   text-align: center;

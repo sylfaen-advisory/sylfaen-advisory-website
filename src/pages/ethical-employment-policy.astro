@@ -1,37 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ethical Employment in Supply Chains — Policy &amp; Commitment Statement</title>
-<meta name="description" content="Sylfaen Advisory's ethical employment policy and commitment statement under the Welsh Government's Code of Practice: Ethical Employment in Supply Chains." />
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
-<link rel="icon" type="image/svg+xml" href="assets/sylfaen-logo-mark.svg" />
-<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:ital,wght@0,400..600;1,400..600&display=swap" />
-<link rel="stylesheet" href="styles.css" />
-<link rel="stylesheet" href="legal.css" />
-</head>
-<body class="legal--long">
-<header class="nav">
-<div class="wrap nav-inner">
-<a href="index.html" class="wordmark">
-<img src="assets/sylfaen-logo-mark.svg" alt="" class="mark-svg" />
-<span class="label"><span>Sylfaen Advisory</span><span class="sub">Construction Assurance</span></span>
-</a>
-<nav class="nav-links">
-<a href="index.html#practice"><span class="num">01</span>Practice</a>
-<a href="index.html#engagements"><span class="num">02</span>Engagements</a>
-<a href="index.html#awen"><span class="num">03</span>Awen</a>
-<a href="index.html#credentials"><span class="num">04</span>Credentials</a>
-<a href="index.html#contact"><span class="num">05</span>Contact</a>
-</nav>
-<div class="nav-status"><span class="dot"></span>Accepting Q3 '26</div>
-</div>
-</header>
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+<Layout
+  title="Ethical Employment in Supply Chains — Policy & Commitment Statement"
+  description="Sylfaen Advisory's ethical employment policy and commitment statement under the Welsh Government's Code of Practice: Ethical Employment in Supply Chains."
+>
+  <link slot="head" rel="stylesheet" href="/legal.css" />
 
+  <Nav base="/" />
+
+<div class="legal--long">
 <section class="section hero legal-hero" id="top">
 <div class="wrap">
 <div class="hero-eyebrow"><span>Legal · Ethical employment</span></div>
@@ -165,39 +145,7 @@ Sylfaen Advisory is committed to the Welsh Government's Code of Practice: Ethica
 </div>
 </div>
 </section>
+</div>
 
-<footer class="footer">
-<div class="wrap">
-<div class="footer-mono-title">Sylfaen.</div>
-<div class="footer-grid">
-<div class="footer-col">
-<h4>Practice</h4>
-<ul><li>Sylfaen Advisory Ltd</li><li>Construction Assurance Consultants</li><li>Wales, UK · operating UK-wide</li></ul>
-</div>
-<div class="footer-col">
-<h4>Engagements</h4>
-<ul><li><a href="index.html#engagements">Health Check (Tier I)</a></li><li><a href="index.html#engagements">Implementation (Tier II)</a></li><li><a href="index.html#engagements">Retainer (Tier III)</a></li></ul>
-</div>
-<div class="footer-col">
-<h4>Tooling</h4>
-<ul><li><a href="index.html#awen">Awen platform</a></li><li><a href="index.html#awen">Live sample workspace</a></li><li><a href="index.html#awen">Request demo</a></li></ul>
-</div>
-<div class="footer-col">
-<h4>Contact</h4>
-<ul>
-<li><a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></li>
-<li><a href="index.html#contact">Engagement enquiry</a></li>
-<li><a href="index.html#contact">Book introduction</a></li>
-<li><a href="privacy.html">Privacy Policy</a></li>
-<li><a href="ethical-employment-policy.html">Ethical Employment Policy</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-meta">
-<span>© 2026 Sylfaen Advisory · Wales, UK</span>
-<span>Powered by Awen</span>
-</div>
-</div>
-</footer>
-</body>
-</html>
+  <Footer base="/" />
+</Layout>
