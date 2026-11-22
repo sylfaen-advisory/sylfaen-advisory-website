@@ -1,4 +1,5 @@
 ---
+import SectionHeader from './SectionHeader.astro';
 const TIERS = [
   {
     num: 'I',
@@ -41,12 +42,9 @@ const TIERS = [
 <section class="section" id="engagements">
   <div class="engagements">
     <div class="engagements-wrap">
-      <div class="section-head">
-        <div class="eyebrow"><span class="num">02</span>Engagements</div>
-        <h2 class="section-title">
-          Ways to engage &mdash; <em>each priced openly,</em> each scoped to remove the usual friction.
-        </h2>
-      </div>
+      <SectionHeader num="02" eyebrow="Engagements">
+        Ways to engage &mdash; <em>each priced openly,</em> each scoped to remove the usual friction.
+      </SectionHeader>
 
       <div class="tiers">
         {TIERS.map((t) => (
