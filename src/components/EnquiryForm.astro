@@ -5,6 +5,7 @@
  *
  *   selected       option pre-selected in "Interested in"
  *   subject        email subject line for Formspree
+ *   orgPlaceholder placeholder for the Organisation field
  *   source         adds a hidden "source" field naming the page
  *   plausibleEvent Plausible custom event fired when the form is submitted
  *   awen           false leaves out the "Awen demo" option (RICS page)
@@ -13,11 +14,12 @@ interface Props {
   id?: string;
   selected?: string;
   subject?: string;
+  orgPlaceholder?: string;
   source?: string;
   plausibleEvent?: string;
   awen?: boolean;
 }
-const { id, selected = 'Not sure yet', subject = 'Sylfaen Advisory — website enquiry', source, plausibleEvent, awen = true } = Astro.props;
+const { id, selected = 'Not sure yet', subject = 'Sylfaen Advisory — website enquiry', orgPlaceholder = 'Your organisation', source, plausibleEvent, awen = true } = Astro.props;
 
 const ALL_OPTIONS = [
   'Health Check (Tier I)',
@@ -45,7 +47,7 @@ const OPTIONS = awen ? ALL_OPTIONS : ALL_OPTIONS.filter((o) => o !== 'Awen demo'
           </div>
           <div class="form-row" style="border-bottom: none;">
             <label for="form-org">Organisation</label>
-            <input id="form-org" name="organisation" placeholder="Company or asset owner" />
+            <input id="form-org" name="organisation" placeholder={orgPlaceholder} />
           </div>
         </div>
 
