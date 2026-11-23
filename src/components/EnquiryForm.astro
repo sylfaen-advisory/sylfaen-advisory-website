@@ -4,6 +4,7 @@
  * by service pages.
  *
  *   selected       option pre-selected in "Interested in"
+ *   subject        email subject line for Formspree
  *   source         adds a hidden "source" field naming the page
  *   plausibleEvent Plausible custom event fired when the form is submitted
  *   awen           false leaves out the "Awen demo" option (RICS page)
@@ -11,11 +12,12 @@
 interface Props {
   id?: string;
   selected?: string;
+  subject?: string;
   source?: string;
   plausibleEvent?: string;
   awen?: boolean;
 }
-const { id, selected = 'Not sure yet', source, plausibleEvent, awen = true } = Astro.props;
+const { id, selected = 'Not sure yet', subject = 'Sylfaen Advisory — website enquiry', source, plausibleEvent, awen = true } = Astro.props;
 
 const ALL_OPTIONS = [
   'Health Check (Tier I)',
@@ -32,7 +34,7 @@ const OPTIONS = awen ? ALL_OPTIONS : ALL_OPTIONS.filter((o) => o !== 'Awen demo'
           <span class="t">Engagement enquiry</span>
         </div>
 
-        <input type="hidden" name="_subject" value="Sylfaen Advisory — website enquiry" />
+        <input type="hidden" name="_subject" value={subject} />
         {source && <input type="hidden" name="source" value={source} />}
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
