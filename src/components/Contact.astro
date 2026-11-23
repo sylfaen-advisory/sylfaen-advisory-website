@@ -1,3 +1,6 @@
+---
+import EnquiryForm from './EnquiryForm.astro';
+---
 <section class="section section-rule" id="contact">
   <div class="wrap">
     <div class="contact">
@@ -55,54 +58,7 @@
         </div>
       </div>
 
-      <form class="form-card" action="https://formspree.io/f/mqejaqpg" method="POST">
-        <div class="form-head">
-          <span class="t">Engagement enquiry</span>
-        </div>
-
-        <input type="hidden" name="_subject" value="Sylfaen Advisory — website enquiry" />
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-        <div class="form-row split">
-          <div class="form-row" style="border-bottom: none;">
-            <label for="form-name">Name</label>
-            <input id="form-name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-row" style="border-bottom: none;">
-            <label for="form-org">Organisation</label>
-            <input id="form-org" name="organisation" placeholder="Company or asset owner" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <label for="form-email">Email</label>
-          <input id="form-email" type="email" name="email" placeholder="you@example.co.uk" required />
-        </div>
-
-        <div class="form-row" style="border-bottom: none;">
-          <label for="form-interest">Interested in</label>
-          <select id="form-interest" name="interested_in">
-            <option>Health Check (Tier I)</option>
-            <option>Implementation (Tier II)</option>
-            <option>Retainer (Tier III)</option>
-            <option>AI Governance Advisory (Tier IV)</option>
-            <option>Awen demo</option>
-            <option selected>Not sure yet</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label for="form-msg">Context</label>
-          <textarea id="form-msg" name="context" placeholder="A sentence or two on the project, platform, or problem in scope."></textarea>
-        </div>
-
-        <div class="form-foot">
-          <p class="note">I&rsquo;ll use what you send only to reply to your enquiry. Your details are held in confidence, and NDAs are available on request. The form is handled by Formspree, a US-based service. The <a href="/privacy.html">privacy notice</a> explains how long I keep enquiries and your rights.</p>
-          <button type="submit" class="btn btn-primary">
-            Send enquiry <span class="arrow">&rarr;</span>
-          </button>
-        </div>
-      </form>
+      <EnquiryForm />
     </div>
   </div>
 </section>

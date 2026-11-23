@@ -1,0 +1,325 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CredentialCard from '../components/CredentialCard.astro';
+import QuoteSlot from '../components/QuoteSlot.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+import { cmiDiploma } from '../data/credentials';
+
+// Client quote between sections 7 and 8. Leave both empty to hide it.
+const QUOTE = {
+  quote: '',
+  attribution: '',
+};
+---
+<Layout
+  title="AI governance for RICS-regulated firms | Sylfaen Advisory"
+  description="Practical help for RICS-regulated firms putting the mandatory AI standard into place: policy, records, risk register and checks your staff will actually use."
+>
+  <link slot="head" rel="stylesheet" href="/service.css" />
+
+  <Nav base="/" awen={false} />
+
+  <!-- 1. Opening -->
+  <section class="section hero svc-hero" id="top">
+    <div class="wrap">
+      <h1 class="hero-headline">Putting the RICS AI standard <em>into practice</em></h1>
+      <div class="svc-hero-body">
+        <p class="hero-lead">
+          The RICS standard on responsible use of AI in surveying practice has
+          been mandatory since 9 March 2026. It asks firms that use AI in their
+          surveying work to record which tools matter, decide how they’re
+          controlled, tell clients, and check that the controls work.
+        </p>
+        <p class="hero-lead">
+          I help surveying firms do that in a form that fits how the firm
+          already works, and that staff will actually use after I’ve gone.
+        </p>
+        <div class="hero-cta">
+          <a href="#enquiry" class="btn btn-primary">
+            Talk to me about your firm <span class="arrow">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. What the standard asks of your firm -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="01" eyebrow="">What the standard asks of your firm</SectionHeader>
+      <div class="svc-body">
+        <div class="svc-prose">
+          <p>
+            The standard applies wherever AI has a material effect on the
+            surveying work you deliver. Whether a tool meets that bar is a
+            judgement each firm has to make and write down.
+          </p>
+          <p>For a regulated firm, that means:</p>
+          <ul class="svc-list">
+            <li>a written record of the AI tools that could materially affect your work, and why</li>
+            <li>a policy on buying and using AI: who is responsible for what, the training staff get each year, and how people check what AI produces</li>
+            <li>a risk register, giving each risk a likelihood, an impact, your firm’s appetite for it and a red, amber or green rating</li>
+            <li>proper checks on an AI supplier before you buy</li>
+            <li>telling clients before AI is used on their work, and giving more detail if they ask</li>
+          </ul>
+          <p>
+            Individual surveyors also need enough working knowledge to use AI
+            responsibly, and must record their own judgement on whether an AI
+            output can be relied on.
+          </p>
+        </div>
+
+        <aside class="svc-callout">
+          <h3>If anyone in your firm gives expert evidence</h3>
+          <p>
+            The new edition of the RICS expert witness standard, in force from
+            30 November 2026, adds its own AI rules. Before accepting
+            instructions, an expert must confirm in writing if AI will be used
+            on the work. The report must then say which parts were AI-assisted,
+            which tools were used and what source material came through them.
+            Your firm’s policy and client wording need to support that.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. What you get -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="02" eyebrow="">What you get</SectionHeader>
+      <div class="svc-body">
+        <p class="svc-intro">
+          Six working documents, built around your firm’s own tools, people and
+          decisions, plus a walkthrough with your partners.
+        </p>
+        <ul class="svc-docs">
+          <li><strong>AI tool review.</strong> Which AI tools are in use across the firm, including AI features built into software you already pay for, what information each one touches, and which ones matter under the standard.</li>
+          <li><strong>AI risk register.</strong> A spreadsheet of your AI risks, scored, rated red, amber or green, and checked against your firm’s appetite for risk. Set up so you can keep it current yourselves.</li>
+          <li><strong>Who’s accountable.</strong> Who decides what about AI, who staff go to with questions, and where problems get reported.</li>
+          <li><strong>AI use policy.</strong> The rules for everyone in the firm, in plain English, reviewed once a year.</li>
+          <li><strong>Client wording.</strong> Text for your terms of engagement and for each new instruction, so clients are told about AI before it’s used on their work. If anyone gives expert evidence, a separate version for that work.</li>
+          <li><strong>Checking routine.</strong> A simple monthly and quarterly sampling routine, so you can show the controls are being used, not just written down.</li>
+        </ul>
+        <div class="svc-prose">
+          <p>
+            Each document is mapped to the part of the standard it answers, so
+            you can see where the firm stands and what’s still to decide.
+          </p>
+          <p>
+            <strong>Walkthrough.</strong> Before anything is finalised, I take
+            your partners through the drafts in person, with the decisions only
+            the firm can make set out clearly. Final versions follow once
+            you’ve commented.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. How it works -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="03" eyebrow="">How it works</SectionHeader>
+      <div class="svc-body">
+        <ol class="svc-steps">
+          <li><strong>A first conversation.</strong> We talk about how the firm works and where AI already shows up. If it’s a fit, I send a short proposal with a fixed price, agreed before any work starts.</li>
+          <li><strong>Kick-off.</strong> A meeting with your partners to agree scope, who signs off, and the decisions the firm will need to make along the way.</li>
+          <li><strong>Finding out what’s really happening.</strong> A short anonymous staff survey, a few one-to-one conversations, and a look at the settings in the software you already use. One-to-ones aren’t recorded, and nothing anyone says is attributed to them by name.</li>
+          <li><strong>Drafts.</strong> I write the documents from what I’ve found, marking clearly anything the firm still needs to decide.</li>
+          <li><strong>Walkthrough.</strong> I take your partners through the drafts and the open decisions.</li>
+          <li><strong>Final versions.</strong> Updated from your comments and decisions, ready to use.</li>
+        </ol>
+        <div class="svc-prose">
+          <p>From kick-off to final versions takes about six weeks.</p>
+          <p>
+            <strong>What I need from you:</strong> one partner to sign off,
+            around two hours of their time across the six weeks, 10 minutes
+            from each member of staff for the survey, and someone who can show
+            me your software’s admin settings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Keeping it working -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="04" eyebrow="">Keeping it working</SectionHeader>
+      <div class="svc-body">
+        <div class="svc-prose">
+          <p>
+            A policy nobody revisits doesn’t protect anyone. New tools arrive,
+            software suppliers switch on AI features without much warning, and
+            staff come and go. Once the documents are in place, I can help you
+            keep them current:
+          </p>
+          <ul class="svc-list svc-list--leads">
+            <li><strong>Quarterly reviews.</strong> A short session each quarter to update the risk register and the record of AI tools, look at what the sampling has turned up, and deal with anything new.</li>
+            <li><strong>New tools.</strong> A second opinion before the firm starts using a new AI tool, including the supplier checks the standard asks for.</li>
+            <li><strong>Training.</strong> A short online course for your staff, built around your own policy. It supports the yearly training the standard expects, and you can buy it on its own.</li>
+          </ul>
+          <p>
+            I shape this around each firm rather than selling a fixed package,
+            so we agree what’s useful once the documents are done.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5a. Fees -->
+  <section class="section svc-fees" id="fees">
+    <div class="wrap">
+      <SectionHeader num="05" eyebrow="">Fees</SectionHeader>
+      <div class="svc-body">
+        <p class="svc-intro">Every fee is fixed before any work starts. All fees exclude VAT.</p>
+        <table class="svc-fee-table">
+          <thead>
+            <tr>
+              <td></td>
+              <th scope="col">Fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">AI governance set: the six documents, walkthrough and final versions</th>
+              <td>from £3,750</td>
+            </tr>
+            <tr>
+              <th scope="row">Staff AI training course, built around your own policy</th>
+              <td>from £2,750, plus £1,250 a year for hosting, a yearly update and completion records</td>
+            </tr>
+            <tr>
+              <th scope="row">Quarterly reviews</th>
+              <td>from £1,000 a quarter</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="svc-prose">
+          <p>
+            The exact fee depends on the size of the firm and how many teams use
+            AI. I’ll confirm it in writing after our first conversation.
+          </p>
+          <p>
+            You can buy the training on its own, even if someone else wrote your
+            AI policy. It covers the standard’s training requirement, not
+            everything the standard asks for.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. How I use AI on your work -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="06" eyebrow="">How I use AI on your work</SectionHeader>
+      <div class="svc-body">
+        <div class="svc-prose">
+          <p>If I’m advising you on AI, you should know how I use it myself.</p>
+          <ul class="svc-list svc-list--leads">
+            <li><strong>Recording.</strong> I use AI to transcribe and summarise meetings, but only after asking everyone present, and I stop if anyone objects. One-to-one staff conversations are never recorded.</li>
+            <li><strong>Your information.</strong> It only goes into AI tools when the work needs it, and only into tools I use under business terms with data processing agreements, which don’t train on your information. Client names, documents and details never go into any other AI tool.</li>
+            <li><strong>Deleting.</strong> Recordings and transcripts are deleted within three months of the work ending, or sooner if you ask.</li>
+            <li><strong>Your choice.</strong> You can ask me not to record meetings, to keep particular information out of AI tools, or not to use AI on your work at all. If that changes the timetable or fee, I’ll say so before going ahead.</li>
+            <li><strong>My judgement, not the tool’s.</strong> I review and approve everything before it reaches you, and I’m responsible for it.</li>
+          </ul>
+          <p>
+            You’ll get my AI use statement with the proposal, listing the tools
+            I use and what each one does. If that changes in a way that affects
+            your information, I’ll tell you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Who you'd work with -->
+  <section class="section section-rule">
+    <div class="wrap">
+      <SectionHeader num="07" eyebrow="">Who you’d work with</SectionHeader>
+      <div class="svc-body">
+        <div class="svc-prose">
+          <p>
+            I’m Mark Biscoe, founder of Sylfaen Advisory. I run every engagement
+            myself, from the first conversation to the final documents.
+          </p>
+          <p>
+            For over fifteen years I’ve helped organisations get control of
+            their project information: what’s kept, who can change it, and
+            whether it can be relied on. That work has spanned health,
+            infrastructure and housebuilding, including platform roles at
+            several construction software vendors. It’s the same discipline the
+            RICS standard now applies to AI: knowing what a tool does with your
+            information, and being able to show your own judgement, not just
+            its output.
+          </p>
+          <p>
+            I’ve also built AI document tools myself, so I know where they go
+            wrong and what a firm should ask a supplier.
+          </p>
+          <p>
+            I’m not a surveyor. Your people bring the professional judgement; I
+            help put the structure around it.
+          </p>
+        </div>
+        <div class="svc-cred">
+          <CredentialCard
+            glyph="CMI"
+            glyphMono
+            title="Professional consulting practice"
+            badges={[cmiDiploma]}
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client quote: renders nothing until both fields are filled in -->
+  <QuoteSlot quote={QUOTE.quote} attribution={QUOTE.attribution} />
+
+  <!-- 8. Talk it through -->
+  <section class="section section-rule" id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div class="contact-aside">
+          <div class="eyebrow" style="margin-bottom: 20px;"><span class="num">08</span></div>
+          <h2 class="section-title">Talk it through</h2>
+          <p class="section-sub">
+            If you’re working out what the standard means for your firm, a first
+            conversation costs nothing and commits you to nothing. Tell me
+            roughly how the firm works and which AI tools you think are in use,
+            and I’ll tell you honestly whether I can help.
+          </p>
+          <div class="contact-modes">
+            <a href="https://calendly.com/mark-sylfaenadvisory/30min" target="_blank" rel="noopener noreferrer" class="contact-mode svc-mode">
+              <span class="lbl">
+                <span class="t">Book a 30-minute introduction</span>
+              </span>
+              <span class="arr">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="svc-form">
+          <EnquiryForm
+            id="enquiry"
+            selected="AI Governance Advisory (Tier IV)"
+            source="rics-ai-governance"
+            plausibleEvent="RICS enquiry"
+            awen={false}
+          />
+          <p class="svc-form-alt">or email <a href="mailto:mark@sylfaenadvisory.co.uk">mark@sylfaenadvisory.co.uk</a></p>
+          <p class="svc-form-base">Based in south Wales, working with firms across the UK.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer base="/" awen={false} />
+</Layout>

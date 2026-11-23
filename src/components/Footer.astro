@@ -1,13 +1,15 @@
 ---
 interface Props {
   base?: string;
+  /** false leaves out everything about Awen (RICS page). */
+  awen?: boolean;
 }
-const { base = '' } = Astro.props;
+const { base = '', awen = true } = Astro.props;
 ---
 <footer class="footer">
   <div class="wrap">
     <div class="footer-mono-title">Sylfaen.</div>
-    <div class="footer-grid">
+    <div class:list={['footer-grid', { 'footer-grid--3': !awen }]}>
       <div class="footer-col">
         <h4>Practice</h4>
         <ul>
@@ -28,14 +30,16 @@ const { base = '' } = Astro.props;
           <li><a href="/rics-ai-governance">AI governance (Tier IV)</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Tooling</h4>
-        <ul>
-          <li><a href={`${base}#awen`}>Awen platform</a></li>
-          <li><a href={`${base}#awen`}>Live sample workspace</a></li>
-          <li><a href={`${base}#awen`}>Request demo</a></li>
-        </ul>
-      </div>
+      {awen && (
+        <div class="footer-col">
+          <h4>Tooling</h4>
+          <ul>
+            <li><a href={`${base}#awen`}>Awen platform</a></li>
+            <li><a href={`${base}#awen`}>Live sample workspace</a></li>
+            <li><a href={`${base}#awen`}>Request demo</a></li>
+          </ul>
+        </div>
+      )}
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
@@ -50,7 +54,7 @@ const { base = '' } = Astro.props;
     </div>
     <div class="footer-meta">
       <span>&copy; 2026 Sylfaen Advisory &middot; Wales, UK</span>
-      <span>Powered by Awen</span>
+      {awen && <span>Powered by Awen</span>}
     </div>
   </div>
 </footer>

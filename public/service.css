@@ -1,0 +1,346 @@
+/* === Service pages — shared styles ===
+   First used by /rics-ai-governance. Loaded after styles.css, which supplies
+   the tokens and the shared section, button, credential and form styles. */
+
+/* --- Section rhythm ---
+   styles.css drops the top padding of a section that follows another, which
+   suits the homepage's full-bleed bands. Here every section starts at a rule,
+   so it needs space above its heading. */
+
+.section { padding-bottom: clamp(64px, 7vw, 112px); }
+.section + .section.section-rule { padding-top: clamp(56px, 6vw, 96px); }
+
+/* --- Opening --- */
+
+.svc-hero {
+  padding-top: clamp(72px, 8vw, 128px);
+  padding-bottom: clamp(64px, 8vw, 120px);
+}
+
+.svc-hero .hero-headline {
+  font-size: clamp(44px, 6.4vw, 96px);
+  max-width: 15ch;
+}
+
+.svc-hero-body {
+  margin-top: clamp(36px, 4.5vw, 60px);
+  max-width: 60ch;
+}
+
+.svc-hero-body .hero-lead {
+  max-width: none;
+  color: var(--ink-soft);
+}
+
+.svc-hero-body .hero-lead + .hero-lead { margin-top: 18px; }
+
+/* --- Section body: lines up with the section title column --- */
+
+.svc-body {
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  column-gap: clamp(24px, 5vw, 80px);
+  row-gap: clamp(32px, 4vw, 48px);
+}
+
+.svc-body > * { grid-column: 2; min-width: 0; }
+
+@media (max-width: 760px) {
+  .svc-body { grid-template-columns: 1fr; }
+  .svc-body > * { grid-column: 1; }
+}
+
+.svc-prose {
+  max-width: 64ch;
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.35vw, 20px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  font-weight: 380;
+}
+
+.svc-prose p + p,
+.svc-prose p + ul,
+.svc-prose ul + p { margin-top: 1em; }
+
+.svc-prose strong,
+.svc-docs strong,
+.svc-steps strong,
+.svc-callout strong {
+  color: var(--ink);
+  font-weight: 560;
+}
+
+.svc-intro {
+  font-family: var(--serif);
+  font-size: clamp(21px, 1.9vw, 27px);
+  line-height: 1.4;
+  color: var(--ink);
+  font-weight: 380;
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+
+/* Bulleted list */
+
+.svc-list { list-style: none; }
+
+.svc-list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.svc-list li + li { margin-top: 0.55em; }
+
+.svc-list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.8em;
+  width: 14px;
+  height: 1px;
+  background: var(--teal);
+}
+
+.svc-list--leads li + li { margin-top: 0.9em; }
+
+/* Callout (expert evidence) */
+
+.svc-callout {
+  max-width: 64ch;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--teal);
+  padding: clamp(24px, 3vw, 36px);
+}
+
+.svc-callout h3 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 14px;
+}
+
+.svc-callout p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+/* --- What you get: the six documents --- */
+
+.svc-docs {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+@media (max-width: 880px) {
+  .svc-docs { grid-template-columns: 1fr; }
+}
+
+.svc-docs li {
+  padding: clamp(22px, 2.4vw, 32px);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.svc-docs li strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+/* --- How it works: numbered steps --- */
+
+.svc-steps {
+  list-style: none;
+  counter-reset: step;
+  border-top: 1px solid var(--rule);
+  max-width: 72ch;
+}
+
+.svc-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 22px 0 22px 64px;
+  border-bottom: 1px solid var(--rule);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.svc-steps li::before {
+  content: counter(step) ".";
+  position: absolute;
+  left: 0;
+  top: 22px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.svc-steps li strong {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 450;
+}
+
+/* --- Fees --- */
+
+.svc-fees {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--rule);
+}
+
+.section + .svc-fees { padding-top: clamp(56px, 6vw, 96px); }
+
+.svc-fee-table {
+  width: 100%;
+  max-width: 880px;
+  border-collapse: collapse;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+
+.svc-fee-table thead th,
+.svc-fee-table thead td {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  font-weight: 500;
+  text-align: left;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.svc-fee-table tbody th,
+.svc-fee-table tbody td {
+  text-align: left;
+  vertical-align: top;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.svc-fee-table tbody tr:last-child th,
+.svc-fee-table tbody tr:last-child td { border-bottom: none; }
+
+.svc-fee-table tbody th {
+  width: 52%;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.svc-fee-table tbody td {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* Narrow screens: each row stacks, service above fee. Nothing scrolls sideways. */
+@media (max-width: 640px) {
+  .svc-fee-table,
+  .svc-fee-table tbody,
+  .svc-fee-table tr,
+  .svc-fee-table th,
+  .svc-fee-table td { display: block; width: auto; }
+
+  .svc-fee-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .svc-fee-table tbody tr {
+    padding: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .svc-fee-table tbody tr:last-child { border-bottom: none; }
+
+  .svc-fee-table tbody th,
+  .svc-fee-table tbody td { padding: 0; border: none; width: auto; }
+
+  .svc-fee-table tbody th { font-size: 18px; margin-bottom: 8px; }
+}
+
+/* --- Who you'd work with --- */
+
+.svc-cred { max-width: 460px; }
+.svc-cred .cred { min-height: 0; margin: 0; }
+
+/* --- Quote --- */
+
+.svc-quote {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.svc-quote blockquote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 380;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.svc-quote figcaption {
+  margin-top: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+/* --- Talk it through --- */
+
+.svc-mode { grid-template-columns: 1fr auto; }
+
+#enquiry { scroll-margin-top: 100px; }
+
+.svc-form-alt {
+  margin-top: 20px;
+  font-family: var(--serif);
+  font-size: 19px;
+  color: var(--ink-soft);
+}
+
+.svc-form-alt a {
+  color: var(--teal-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+.svc-form-alt a:hover { text-decoration-thickness: 2px; }
+
+.svc-form-base {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--slate);
+}

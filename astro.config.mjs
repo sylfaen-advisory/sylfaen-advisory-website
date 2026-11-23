@@ -17,6 +17,8 @@ export default defineConfig({
         page !== 'https://sylfaenadvisory.co.uk/privacy' &&
         page !== 'https://sylfaenadvisory.co.uk/terms' &&
         page !== 'https://sylfaenadvisory.co.uk/ethical-employment-policy',
+      // rics-ai-governance is left in as /rics-ai-governance (no .html):
+      // that is its public URL, and GitHub Pages serves the .html file there.
       customPages: [
         'https://sylfaenadvisory.co.uk/privacy.html',
         'https://sylfaenadvisory.co.uk/terms.html',

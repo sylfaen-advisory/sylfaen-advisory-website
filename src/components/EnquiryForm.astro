@@ -1,0 +1,92 @@
+---
+/**
+ * Shared enquiry form (Formspree). Used by the homepage Contact section and
+ * by service pages.
+ *
+ *   selected       option pre-selected in "Interested in"
+ *   source         adds a hidden "source" field naming the page
+ *   plausibleEvent Plausible custom event fired when the form is submitted
+ *   awen           false leaves out the "Awen demo" option (RICS page)
+ */
+interface Props {
+  id?: string;
+  selected?: string;
+  source?: string;
+  plausibleEvent?: string;
+  awen?: boolean;
+}
+const { id, selected = 'Not sure yet', source, plausibleEvent, awen = true } = Astro.props;
+
+const ALL_OPTIONS = [
+  'Health Check (Tier I)',
+  'Implementation (Tier II)',
+  'Retainer (Tier III)',
+  'AI Governance Advisory (Tier IV)',
+  'Awen demo',
+  'Not sure yet',
+];
+const OPTIONS = awen ? ALL_OPTIONS : ALL_OPTIONS.filter((o) => o !== 'Awen demo');
+---
+<form class="form-card" action="https://formspree.io/f/mqejaqpg" method="POST" id={id} data-plausible-event={plausibleEvent}>
+        <div class="form-head">
+          <span class="t">Engagement enquiry</span>
+        </div>
+
+        <input type="hidden" name="_subject" value="Sylfaen Advisory — website enquiry" />
+        {source && <input type="hidden" name="source" value={source} />}
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+        <div class="form-row split">
+          <div class="form-row" style="border-bottom: none;">
+            <label for="form-name">Name</label>
+            <input id="form-name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-row" style="border-bottom: none;">
+            <label for="form-org">Organisation</label>
+            <input id="form-org" name="organisation" placeholder="Company or asset owner" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="form-email">Email</label>
+          <input id="form-email" type="email" name="email" placeholder="you@example.co.uk" required />
+        </div>
+
+        <div class="form-row" style="border-bottom: none;">
+          <label for="form-interest">Interested in</label>
+          <select id="form-interest" name="interested_in">
+            {OPTIONS.map((o) => <option selected={o === selected}>{o}</option>)}
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="form-msg">Context</label>
+          <textarea id="form-msg" name="context" placeholder="A sentence or two on the project, platform, or problem in scope."></textarea>
+        </div>
+
+        <div class="form-foot">
+          <p class="note">I&rsquo;ll use what you send only to reply to your enquiry. Your details are held in confidence, and NDAs are available on request. The form is handled by Formspree, a US-based service. The <a href="/privacy.html">privacy notice</a> explains how long I keep enquiries and your rights.</p>
+          <button type="submit" class="btn btn-primary">
+            Send enquiry <span class="arrow">&rarr;</span>
+          </button>
+        </div>
+      </form>
+{plausibleEvent && (
+  <script is:inline>
+    // Record a Plausible custom event before the form leaves for Formspree.
+    // The browser only fires "submit" once required fields are valid. The
+    // event is sent first, then the form submits; if Plausible hasn't
+    // answered within a second, the form submits anyway.
+    document.querySelectorAll('form[data-plausible-event]').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var sent = false;
+        function go() { if (sent) return; sent = true; form.submit(); }
+        try {
+          window.plausible(form.dataset.plausibleEvent, { callback: go });
+        } catch (err) {}
+        setTimeout(go, 1000);
+      });
+    });
+  </script>
+)}
