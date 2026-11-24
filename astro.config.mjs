@@ -13,12 +13,12 @@ export default defineConfig({
       // pattern, which ignores build.format:'file' — so /privacy.astro
       // comes out as "/privacy", not the "/privacy.html" that's actually
       // served. Drop that mismatched entry and add the real URL instead.
-      // ethical-employment-policy.html is a static passthrough file in
-      // public/, not an Astro route, so it isn't in Astro's own page list
-      // at all — it's added the same way.
       filter: (page) =>
         page !== 'https://sylfaenadvisory.co.uk/privacy' &&
-        page !== 'https://sylfaenadvisory.co.uk/terms',
+        page !== 'https://sylfaenadvisory.co.uk/terms' &&
+        page !== 'https://sylfaenadvisory.co.uk/ethical-employment-policy',
+      // rics-ai-governance is left in as /rics-ai-governance (no .html):
+      // that is its public URL, and GitHub Pages serves the .html file there.
       customPages: [
         'https://sylfaenadvisory.co.uk/privacy.html',
         'https://sylfaenadvisory.co.uk/terms.html',

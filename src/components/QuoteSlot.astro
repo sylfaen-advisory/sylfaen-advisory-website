@@ -1,0 +1,24 @@
+---
+/**
+ * Client quote. Renders nothing until both the quote and the attribution
+ * are supplied.
+ *
+ *   <QuoteSlot quote="…" attribution="Partner, a regional surveying firm" />
+ */
+interface Props {
+  quote?: string;
+  attribution?: string;
+}
+const quote = Astro.props.quote?.trim();
+const attribution = Astro.props.attribution?.trim();
+---
+{quote && attribution && (
+  <section class="section section-rule svc-quote-section">
+    <div class="wrap">
+      <figure class="svc-quote">
+        <blockquote><p>{quote}</p></blockquote>
+        <figcaption>{attribution}</figcaption>
+      </figure>
+    </div>
+  </section>
+)}

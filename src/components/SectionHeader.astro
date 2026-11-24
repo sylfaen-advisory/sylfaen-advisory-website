@@ -1,0 +1,28 @@
+---
+/**
+ * Shared section header: numbered eyebrow, optional kicker line, and the
+ * section title. The title goes in the default slot so it can carry <em>.
+ *
+ *   <SectionHeader num="04" eyebrow="Credentials">
+ *     Why an independent practice <em>and not a Big Five team?</em>
+ *   </SectionHeader>
+ */
+interface Props {
+  eyebrow: string;
+  num?: string;
+  kicker?: string;
+}
+const { eyebrow, num, kicker } = Astro.props;
+const title = await Astro.slots.render('default');
+---
+<div class="section-head">
+  <div class="eyebrow">{num && <span class="num">{num}</span>}{eyebrow}</div>
+  {kicker ? (
+    <div>
+      <div class="section-kicker">{kicker}</div>
+      <h2 class="section-title" set:html={title} />
+    </div>
+  ) : (
+    <h2 class="section-title" set:html={title} />
+  )}
+</div>
